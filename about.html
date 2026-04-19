@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About — WiseWave Enterprise</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.page-hero{padding:9rem 5% 5rem;background:var(--bg2);border-bottom:1px solid var(--border);transition:background var(--tr);}
+.page-hero-inner{max-width:1400px;margin:auto;}
+.ph-eyebrow{font-size:.73rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;gap:.7rem;}
+.ph-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem;}
+.page-hero h1 strong{font-weight:700;}
+.page-hero h1 em{font-style:italic;color:var(--muted);}
+.page-hero p{color:var(--muted);font-size:1rem;font-weight:300;max-width:520px;line-height:1.85;}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.story-text p{color:var(--text2);font-size:.95rem;font-weight:300;line-height:1.9;margin-bottom:1.25rem;}
+.story-text p strong{font-weight:600;color:var(--text);}
+.story-quote{border-left:3px solid var(--gold);padding-left:1.5rem;margin:2rem 0;}
+.story-quote p{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;font-style:italic;color:var(--text2);line-height:1.6;}
+.story-quote cite{font-size:.78rem;color:var(--muted);font-style:normal;display:block;margin-top:.5rem;}
+
+/* FOUNDER */
+.founder-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.5rem;box-shadow:var(--sh);}
+.founder-avatar{width:80px;height:80px;border-radius:50%;background:var(--gold3);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:1.5rem;}
+.founder-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;margin-bottom:.25rem;}
+.founder-title{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.5rem;}
+.founder-row{display:flex;gap:.75rem;margin-bottom:.75rem;align-items:flex-start;}
+.founder-row-lbl{font-size:.72rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em;min-width:90px;padding-top:2px;}
+.founder-row-val{font-size:.85rem;color:var(--text2);font-weight:400;line-height:1.5;}
+.founder-divider{border:none;border-top:1px solid var(--border);margin:1.5rem 0;}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.5rem;}
+.reg-item{background:var(--bg3);border-radius:8px;padding:.75rem 1rem;}
+.reg-item-lbl{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:.2rem;}
+.reg-item-val{font-size:.85rem;font-weight:600;color:var(--text);}
+
+/* MISSION GRID */
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.mission-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;box-shadow:var(--sh);}
+.mc-icon{font-size:2rem;margin-bottom:1rem;}
+.mc-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:.6rem;}
+.mc-desc{font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.75;}
+
+/* TIMELINE */
+.timeline{margin-top:3rem;position:relative;padding-left:2rem;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border);}
+.tl-item{position:relative;padding-bottom:2.5rem;padding-left:1.5rem;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-dot{position:absolute;left:-2.5rem;top:2px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);}
+.tl-date{font-size:.72rem;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;}
+.tl-title{font-weight:600;font-size:.9rem;margin-bottom:.3rem;}
+.tl-desc{font-size:.82rem;color:var(--muted);font-weight:300;line-height:1.65;}
+
+@media(max-width:900px){.story-grid{grid-template-columns:1fr;gap:3rem;}.mission-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav class="ww-nav">
+  <a href="home.html" class="ww-logo">WiseWave<span class="ww-logo-dot">.</span></a>
+  <ul class="ww-nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+    <div class="ww-nav-r">
+    <button class="tog" onclick="toggleTheme()"><span class="tog-sun">☀</span><span class="tog-moon">☽</span></button>
+    <a href="track.html" class="nav-track-btn">📦 Track Order</a>
+    <a href="index.html" class="nav-shop-btn">Shop Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="track.html" class="mob-track">📦 Track Your Order</a>
+  <a href="index.html" style="color:var(--gold);font-weight:700;">🛒 Shop Now</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="ph-eyebrow">Our story</div>
+    <h1><strong>We are</strong><br><em>WiseWave</em><br><strong>Enterprise.</strong></h1>
+    <p>A registered Ghanaian business built on trust, authenticity, and a passion for connecting people with the products they love — without the stress of social media DMs.</p>
+  </div>
+</section>
+
+<!-- STORY + FOUNDER -->
+<section class="section">
+  <div class="section-inner">
+    <div class="story-grid fade-in">
+      <div class="story-text">
+        <div class="kicker">The story</div>
+        <h2 class="sec-title" style="margin-bottom:2rem;">From Kumasi,<br><em>to your doorstep.</em></h2>
+        <p>WiseWave Enterprise was born in <strong>Kumasi, Ashanti Region</strong> with a simple but powerful idea: people in Ghana deserve a safe, transparent, and convenient way to buy premium electronics and vehicles — without the anxiety of sending money to unknown social media accounts.</p>
+        <p>Founded by <strong>Gabriel Antwi Osei</strong> and officially registered with the Registrar of Business Names on <strong>13 February 2024</strong>, WiseWave started as a small operation and quickly grew into a trusted name in the Kumasi tech and auto market.</p>
+        <p>We deliberately focus on three product lines — <strong>gaming consoles, iPhones, and premium cars</strong> — because we believe in doing fewer things extraordinarily well. Every product we stock is verified, every price is transparent, and every payment is secured through Paystack.</p>
+        <div class="story-quote">
+          <p>"We wanted to build the kind of business we wished existed when we were the customer — one that actually picks up the phone, delivers what it promises, and makes the whole experience feel premium."</p>
+          <cite>— Gabriel Antwi Osei, Founder &amp; Proprietor</cite>
+        </div>
+        <p>Today WiseWave serves customers across Ghana — from Kumasi and Accra to Takoradi and beyond — with plans to expand the product range and open a physical showroom in the Ashanti Region.</p>
+      </div>
+      <div>
+        <div class="founder-card fade-in">
+          <div class="founder-avatar">👨🏾‍💼</div>
+          <div class="founder-name">Gabriel Antwi Osei</div>
+          <div class="founder-title">Founder &amp; Proprietor · WiseWave Enterprise</div>
+          <div class="founder-row"><span class="founder-row-lbl">Nationality</span><span class="founder-row-val">Ghanaian</span></div>
+          <div class="founder-row"><span class="founder-row-lbl">Based in</span><span class="founder-row-val">Kumasi, Ashanti Region</span></div>
+          <div class="founder-row"><span class="founder-row-lbl">Mobile</span><span class="founder-row-val">0595 650 930</span></div>
+          <div class="founder-row"><span class="founder-row-lbl">Email</span><span class="founder-row-val">oseiantwi868@gmail.com</span></div>
+          <hr class="founder-divider">
+          <div class="ww-footer-col-ttl" style="margin-bottom:1rem;">Business Registration</div>
+          <div class="reg-grid">
+            <div class="reg-item"><div class="reg-item-lbl">Reg. Number</div><div class="reg-item-val">BN137080224</div></div>
+            <div class="reg-item"><div class="reg-item-lbl">TIN</div><div class="reg-item-val">P0020513828</div></div>
+            <div class="reg-item"><div class="reg-item-lbl">Registered</div><div class="reg-item-val">13 Feb 2024</div></div>
+            <div class="reg-item"><div class="reg-item-lbl">Digital Addr.</div><div class="reg-item-val">AK-225-7011</div></div>
+          </div>
+          <div style="margin-top:1.25rem;background:var(--teal2);border:1px solid rgba(13,110,110,.18);border-radius:8px;padding:.85rem 1rem;font-size:.8rem;color:var(--teal);display:flex;gap:.6rem;align-items:center;">
+            ✓ <span>Verified under the Registration of Business Names Act, 1962 (No. 151) — Republic of Ghana</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION / VALUES -->
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--border);transition:background var(--tr);">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="kicker">What drives us</div>
+      <h2 class="sec-title">Mission, Vision<br><em>&amp; Values.</em></h2>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card fade-in">
+        <div class="mc-icon">🎯</div>
+        <div class="mc-title">Our Mission</div>
+        <p class="mc-desc">To make buying premium electronics and vehicles in Ghana simple, secure, and trustworthy — removing the risk and friction from every transaction.</p>
+      </div>
+      <div class="mission-card fade-in">
+        <div class="mc-icon">🔭</div>
+        <div class="mc-title">Our Vision</div>
+        <p class="mc-desc">To become Ghana's most trusted online store for technology and automobiles — a name that customers recommend to family and friends without hesitation.</p>
+      </div>
+      <div class="mission-card fade-in">
+        <div class="mc-icon">⚖️</div>
+        <div class="mc-title">Our Values</div>
+        <p class="mc-desc">Transparency in every transaction. Authenticity in every product. Respect for every customer's time and money. These aren't slogans — they're how we operate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section">
+  <div class="section-inner" style="max-width:700px;">
+    <div class="fade-in">
+      <div class="kicker">Our journey</div>
+      <h2 class="sec-title">How we got <em>here.</em></h2>
+    </div>
+    <div class="timeline fade-in">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">January 2024</div>
+        <div class="tl-title">WiseWave Enterprise founded</div>
+        <div class="tl-desc">Gabriel Antwi Osei starts WiseWave Enterprise in Kumasi, beginning operations on 31 January 2024 with a focus on automobile imports and mobile money services.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">February 2024</div>
+        <div class="tl-title">Officially registered</div>
+        <div class="tl-desc">WiseWave Enterprise is officially registered under the Registration of Business Names Act, 1962 (No.151) as Reg. No. BN137080224.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Mid 2024</div>
+        <div class="tl-title">Product range expanded</div>
+        <div class="tl-desc">WiseWave adds gaming consoles and iPhones to the catalogue, creating a focused three-category offering built around what Ghanaian customers demand most.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2025</div>
+        <div class="tl-title">Official e-commerce website launched</div>
+        <div class="tl-desc">WiseWave launches its full online store with Paystack integration, allowing customers to browse, order, and pay securely without sending DMs.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Coming Soon</div>
+        <div class="tl-title">Physical showroom — Kumasi</div>
+        <div class="tl-desc">Plans underway to open a physical location in the Ashanti Region for vehicle viewings and in-person phone and console purchases.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band fade-in" style="background:var(--text);color:var(--bg);padding:5rem 5%;text-align:center;transition:background var(--tr),color var(--tr);">
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;letter-spacing:-.02em;margin-bottom:1rem;">Ready to shop with confidence?</h2>
+  <p style="opacity:.65;max-width:480px;margin:0 auto 2rem;font-weight:300;font-size:.95rem;">A registered business, real products, secure payments. Visit the shop.</p>
+  <a href="index.html" class="btn-gold" style="background:var(--gold);color:#fff;">Browse the Shop ↗</a>
+</section>
+
+<footer class="ww-footer">
+  <div class="ww-footer-grid">
+    <div>
+      <div class="ww-footer-logo">WiseWave<span class="ww-logo-dot">.</span></div>
+      <p class="ww-footer-tag">Ghana's trusted store for gaming consoles, iPhones, and premium cars.</p>
+      <div class="ww-footer-reg">Reg. No: BN137080224 · TIN: P0020513828<br>Kwadaso Estate, Kumasi, Ashanti Region, Ghana</div>
+    </div>
+    <div><div class="ww-footer-col-ttl">Shop</div><ul class="ww-footer-list"><li><a href="index.html#consoles">Consoles</a></li><li><a href="index.html#phones">iPhones</a></li><li><a href="index.html#cars">Cars</a></li></ul></div>
+    <div><div class="ww-footer-col-ttl">Company</div><ul class="ww-footer-list"><li><a href="home.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="ww-footer-col-ttl">Support</div><ul class="ww-footer-list"><li><a href="track.html">Track Order</a></li><li><a href="contact.html">WhatsApp Us</a></li><li><a href="contact.html">Returns</a></li></ul></div>
+  </div>
+  <div class="ww-footer-bot">
+    <div class="ww-footer-copy">© 2025 WiseWave Enterprise. All rights reserved.</div>
+    <div class="ww-socials"><a href="#" class="ww-soc">𝕏</a><a href="#" class="ww-soc">in</a><a href="#" class="ww-soc">f</a><a href="#" class="ww-soc">📷</a></div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

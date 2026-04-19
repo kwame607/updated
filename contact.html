@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact — WiseWave Enterprise</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.page-hero{padding:9rem 5% 5rem;background:var(--bg2);border-bottom:1px solid var(--border);transition:background var(--tr);}
+.page-hero-inner{max-width:1400px;margin:auto;}
+.ph-eyebrow{font-size:.73rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;gap:.7rem;}
+.ph-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem;}
+.page-hero h1 strong{font-weight:700;}
+.page-hero h1 em{font-style:italic;color:var(--muted);}
+.page-hero p{color:var(--muted);font-size:1rem;font-weight:300;max-width:520px;line-height:1.85;}
+
+/* CONTACT GRID */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;}
+/* Info column */
+.contact-info{display:flex;flex-direction:column;gap:1.25rem;}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.75rem;box-shadow:var(--sh);display:flex;gap:1.25rem;align-items:flex-start;transition:border-color .2s,transform .25s;}
+.info-card:hover{border-color:var(--border2);transform:translateY(-3px);}
+.info-icon{width:44px;height:44px;border-radius:10px;background:var(--gold3);border:1px solid rgba(181,146,42,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.info-body{}
+.info-lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:.35rem;}
+.info-val{font-size:.92rem;font-weight:500;color:var(--text);margin-bottom:.2rem;line-height:1.4;}
+.info-sub{font-size:.78rem;color:var(--muted);font-weight:300;}
+.info-link{color:var(--gold);text-decoration:none;transition:opacity .2s;}
+.info-link:hover{opacity:.75;}
+
+/* FORM */
+.contact-form-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.5rem;box-shadow:var(--sh);}
+.cf-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;margin-bottom:.5rem;}
+.cf-sub{font-size:.82rem;color:var(--muted);font-weight:300;margin-bottom:2rem;}
+.form-group{margin-bottom:1.25rem;}
+.form-lbl{display:block;font-size:.8rem;color:var(--text2);margin-bottom:.45rem;font-weight:500;}
+.form-input,.form-textarea,.form-select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:.85rem 1rem;border-radius:8px;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s,background .2s;}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--border2);background:var(--bg2);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--faint);}
+.form-textarea{resize:vertical;min-height:120px;}
+.form-select{cursor:pointer;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.submit-btn{width:100%;background:var(--gold);color:#fff;border:none;border-radius:8px;padding:1.1rem;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:opacity .2s,transform .15s;margin-top:.5rem;}
+.submit-btn:hover{opacity:.88;transform:translateY(-1px);}
+.form-success{display:none;background:var(--teal2);border:1px solid rgba(13,110,110,.2);border-radius:8px;padding:1.25rem;font-size:.88rem;color:var(--teal);text-align:center;margin-top:1rem;}
+[data-theme="dark"] .form-success{border-color:rgba(77,184,184,.2);}
+.form-success.show{display:block;}
+
+/* MAP PLACEHOLDER */
+.map-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:2rem;}
+.map-placeholder{height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;color:var(--muted);}
+.map-placeholder-icon{font-size:2.5rem;}
+.map-placeholder-text{font-size:.85rem;font-weight:300;}
+.map-address{padding:1.25rem 1.5rem;border-top:1px solid var(--border);}
+.map-address p{font-size:.82rem;color:var(--text2);font-weight:400;line-height:1.6;}
+.map-address a{color:var(--gold);font-size:.78rem;font-weight:600;text-decoration:none;display:inline-block;margin-top:.5rem;}
+
+/* WHATSAPP CTA */
+.wa-cta{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:1.75rem;display:flex;align-items:center;gap:1.25rem;transition:border-color .2s;}
+.wa-cta:hover{border-color:var(--border2);}
+.wa-icon{font-size:2.2rem;flex-shrink:0;}
+.wa-title{font-weight:600;font-size:.95rem;margin-bottom:.25rem;}
+.wa-sub{font-size:.8rem;color:var(--muted);font-weight:300;}
+.wa-btn{margin-left:auto;background:#25d366;color:#fff;border:none;border-radius:6px;padding:.65rem 1.4rem;font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:opacity .2s;white-space:nowrap;flex-shrink:0;text-decoration:none;display:inline-block;}
+.wa-btn:hover{opacity:.88;}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:1rem;margin-top:3rem;}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--sh);}
+.faq-q{padding:1.25rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem;font-weight:600;transition:background .2s;}
+.faq-q:hover{background:var(--bg3);}
+.faq-toggle{color:var(--gold);font-size:1.1rem;transition:transform .3s;}
+.faq-a{display:none;padding:0 1.5rem 1.25rem;font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.75;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .faq-toggle{transform:rotate(45deg);}
+
+@media(max-width:960px){.contact-grid{grid-template-columns:1fr;gap:2.5rem;}}
+@media(max-width:640px){.form-row{grid-template-columns:1fr;}.wa-btn{display:none;}}
+</style>
+</head>
+<body>
+
+<nav class="ww-nav">
+  <a href="home.html" class="ww-logo">WiseWave<span class="ww-logo-dot">.</span></a>
+  <ul class="ww-nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+    <div class="ww-nav-r">
+    <button class="tog" onclick="toggleTheme()"><span class="tog-sun">☀</span><span class="tog-moon">☽</span></button>
+    <a href="track.html" class="nav-track-btn">📦 Track Order</a>
+    <a href="index.html" class="nav-shop-btn">Shop Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="track.html" class="mob-track">📦 Track Your Order</a>
+  <a href="index.html" style="color:var(--gold);font-weight:700;">🛒 Shop Now</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="ph-eyebrow">Get in touch</div>
+    <h1><strong>Contact</strong><br><em>Us.</em></h1>
+    <p>Have a question about a product, an order, or delivery? We're real people — reach us by phone, WhatsApp, or fill in the form below.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <!-- LEFT: Info -->
+      <div>
+        <div class="kicker fade-in">Contact details</div>
+        <h2 class="sec-title fade-in" style="margin-bottom:2rem;">Let's <em>talk.</em></h2>
+        <div class="contact-info">
+          <div class="info-card fade-in">
+            <div class="info-icon">📱</div>
+            <div class="info-body">
+              <div class="info-lbl">WhatsApp &amp; Mobile</div>
+              <div class="info-val"><a href="tel:0595650930" class="info-link">0595 650 930</a></div>
+              <div class="info-sub">Available Monday–Saturday, 8am–8pm</div>
+            </div>
+          </div>
+          <div class="info-card fade-in">
+            <div class="info-icon">📧</div>
+            <div class="info-body">
+              <div class="info-lbl">Email</div>
+              <div class="info-val"><a href="mailto:oseiantwi868@gmail.com" class="info-link">oseiantwi868@gmail.com</a></div>
+              <div class="info-sub">We reply within 24 hours on business days</div>
+            </div>
+          </div>
+          <div class="info-card fade-in">
+            <div class="info-icon">📍</div>
+            <div class="info-body">
+              <div class="info-lbl">Business Address</div>
+              <div class="info-val">Kwadaso Estate, Near Church of Pentecost</div>
+              <div class="info-sub">Kumasi, Ashanti Region, Ghana<br>Digital: AK-225-7011 · P.O. Box KW 4</div>
+            </div>
+          </div>
+          <div class="info-card fade-in">
+            <div class="info-icon">🏛️</div>
+            <div class="info-body">
+              <div class="info-lbl">Business Registration</div>
+              <div class="info-val">Reg. No. BN137080224</div>
+              <div class="info-sub">TIN: P0020513828 · Registered 13 Feb 2024<br>Under the Business Names Act, 1962 (No.151)</div>
+            </div>
+          </div>
+          <a href="https://wa.me/233595650930" target="_blank" class="wa-cta fade-in" style="text-decoration:none;">
+            <div class="wa-icon">💬</div>
+            <div>
+              <div class="wa-title">Chat on WhatsApp</div>
+              <div class="wa-sub">Fastest way to get help — we reply within minutes.</div>
+            </div>
+            <div class="wa-btn">Open WhatsApp</div>
+          </a>
+          <div class="map-card fade-in">
+            <div class="map-placeholder">
+              <div class="map-placeholder-icon">🗺️</div>
+              <div class="map-placeholder-text">Kwadaso Estate, Kumasi</div>
+            </div>
+            <div class="map-address">
+              <p>An Unnumbered Building, Kwadaso Estate<br>Near the Church of Pentecost, Kumasi<br>Ashanti Region, Ghana</p>
+              <a href="https://maps.google.com/?q=Kwadaso+Estate+Kumasi+Ghana" target="_blank">Open in Google Maps ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="fade-in">
+        <div class="contact-form-wrap">
+          <div class="cf-title">Send Us a Message</div>
+          <div class="cf-sub">Fill in the form and we'll get back to you within 24 hours. For urgent matters, WhatsApp is faster.</div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-lbl">First Name *</label><input class="form-input" type="text" id="cf-fname" placeholder="Kwame"></div>
+            <div class="form-group"><label class="form-lbl">Last Name *</label><input class="form-input" type="text" id="cf-lname" placeholder="Mensah"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-lbl">Phone / WhatsApp *</label><input class="form-input" type="tel" id="cf-phone" placeholder="024 XXX XXXX"></div>
+            <div class="form-group"><label class="form-lbl">Email</label><input class="form-input" type="email" id="cf-email" placeholder="you@email.com"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-lbl">I'm enquiring about</label>
+            <select class="form-select" id="cf-topic">
+              <option value="">Choose a topic…</option>
+              <option>Gaming Consoles</option>
+              <option>iPhones</option>
+              <option>Cars / Vehicles</option>
+              <option>An existing order</option>
+              <option>Payment / Paystack</option>
+              <option>Delivery &amp; Shipping</option>
+              <option>Returns &amp; Refunds</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-group"><label class="form-lbl">Your Message *</label><textarea class="form-textarea" id="cf-msg" placeholder="Tell us what you need. The more detail the better — we want to help you properly."></textarea></div>
+          <button class="submit-btn" onclick="submitContact()">Send Message →</button>
+          <div class="form-success" id="cfSuccess">✓ Message sent! We'll be in touch within 24 hours. For urgent matters, WhatsApp us on 0595 650 930.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--border);transition:background var(--tr);">
+  <div class="section-inner" style="max-width:800px;">
+    <div class="fade-in">
+      <div class="kicker">Common questions</div>
+      <h2 class="sec-title">Frequently asked <em>questions.</em></h2>
+    </div>
+    <div class="faq-list fade-in">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I pay with MoMo?<span class="faq-toggle">+</span></div><div class="faq-a">At checkout, enter your details and click "Place Order &amp; Pay with MoMo." A payment prompt will be sent to your phone number. Enter your MoMo PIN to approve. You'll receive an instant email and SMS confirmation.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Are the products genuine / authentic?<span class="faq-toggle">+</span></div><div class="faq-a">Yes. Every product we sell is 100% authentic and comes in original sealed packaging. We do not sell clones, refurbished or open-box items unless clearly stated in the product description.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does delivery take?<span class="faq-toggle">+</span></div><div class="faq-a">Within Kumasi: same day (orders before 12pm). Accra: 1–2 business days. Other regions: 3–5 business days. You'll receive tracking updates via SMS and email.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I return a product?<span class="faq-toggle">+</span></div><div class="faq-a">Yes. We accept returns within 7 days of delivery if the product is in its original condition and sealed packaging. Contact us via WhatsApp or email to initiate a return.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I view a car before buying?<span class="faq-toggle">+</span></div><div class="faq-a">Yes. For vehicles, we highly encourage you to arrange a physical viewing before payment. Contact us on 0595 650 930 to schedule an appointment at our Kumasi location.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is WiseWave a registered business?<span class="faq-toggle">+</span></div><div class="faq-a">Yes. WiseWave Enterprise is officially registered under the Registration of Business Names Act, 1962 (No.151), Republic of Ghana. Registration No. BN137080224, TIN: P0020513828. You can verify this with the Registrar General's Department.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="ww-footer">
+  <div class="ww-footer-grid">
+    <div>
+      <div class="ww-footer-logo">WiseWave<span class="ww-logo-dot">.</span></div>
+      <p class="ww-footer-tag">Ghana's trusted store for gaming consoles, iPhones, and premium cars.</p>
+      <div class="ww-footer-reg">Reg. No: BN137080224 · TIN: P0020513828<br>Kwadaso Estate, Kumasi, Ashanti Region, Ghana</div>
+    </div>
+    <div><div class="ww-footer-col-ttl">Shop</div><ul class="ww-footer-list"><li><a href="index.html#consoles">Consoles</a></li><li><a href="index.html#phones">iPhones</a></li><li><a href="index.html#cars">Cars</a></li></ul></div>
+    <div><div class="ww-footer-col-ttl">Company</div><ul class="ww-footer-list"><li><a href="home.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="ww-footer-col-ttl">Support</div><ul class="ww-footer-list"><li><a href="track.html">Track Order</a></li><li><a href="contact.html">WhatsApp Us</a></li></ul></div>
+  </div>
+  <div class="ww-footer-bot">
+    <div class="ww-footer-copy">© 2025 WiseWave Enterprise. All rights reserved.</div>
+    <div class="ww-socials"><a href="#" class="ww-soc">𝕏</a><a href="#" class="ww-soc">in</a><a href="#" class="ww-soc">f</a><a href="#" class="ww-soc">📷</a></div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+function submitContact(){
+  const fname=document.getElementById('cf-fname').value.trim();
+  const phone=document.getElementById('cf-phone').value.trim();
+  const msg=document.getElementById('cf-msg').value.trim();
+  if(!fname||!phone||!msg){alert('Please fill in Name, Phone and Message.');return;}
+  document.getElementById('cfSuccess').classList.add('show');
+  document.querySelector('.submit-btn').disabled=true;
+  document.querySelector('.submit-btn').textContent='Message Sent ✓';
+}
+function toggleFaq(el){
+  const item=el.parentElement;
+  document.querySelectorAll('.faq-item.open').forEach(i=>{ if(i!==item) i.classList.remove('open'); });
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>

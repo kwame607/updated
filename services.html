@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Services — WiseWave Enterprise</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.page-hero{padding:9rem 5% 5rem;background:var(--bg2);border-bottom:1px solid var(--border);transition:background var(--tr);}
+.page-hero-inner{max-width:1400px;margin:auto;}
+.ph-eyebrow{font-size:.73rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;gap:.7rem;}
+.ph-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem;}
+.page-hero h1 strong{font-weight:700;}
+.page-hero h1 em{font-style:italic;color:var(--muted);}
+.page-hero p{color:var(--muted);font-size:1rem;font-weight:300;max-width:520px;line-height:1.85;}
+
+/* MAIN SERVICES */
+.srv-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+.srv-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.5rem;box-shadow:var(--sh);transition:all .3s;overflow:hidden;position:relative;}
+.srv-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:var(--gold);border-radius:0 0 4px 4px;transition:height .35s;}
+.srv-card:hover::before{height:100%;}
+.srv-card:hover{transform:translateY(-5px);box-shadow:var(--sh-h);border-color:var(--border2);}
+.srv-icon{font-size:2.5rem;margin-bottom:1.5rem;}
+.srv-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;margin-bottom:.75rem;}
+.srv-desc{color:var(--muted);font-size:.88rem;font-weight:300;line-height:1.8;margin-bottom:1.5rem;}
+.srv-points{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.75rem;}
+.srv-points li{font-size:.82rem;color:var(--text2);display:flex;align-items:flex-start;gap:.6rem;font-weight:400;}
+.srv-points li::before{content:'→';color:var(--gold);font-size:.75rem;margin-top:2px;flex-shrink:0;}
+.srv-link{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(181,146,42,.3);padding-bottom:2px;text-decoration:none;transition:border-color .2s;}
+.srv-link:hover{border-color:var(--gold);}
+
+/* HOW WE DO IT */
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.ps-step{padding:2.5rem 2rem;border-right:1px solid var(--border);background:var(--card);transition:background .2s;}
+.ps-step:last-child{border-right:none;}
+.ps-step:hover{background:var(--bg3);}
+.ps-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;line-height:1;color:var(--faint);margin-bottom:1.25rem;}
+.ps-title{font-weight:600;font-size:.92rem;margin-bottom:.5rem;}
+.ps-desc{font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.7;}
+
+/* PAYMENT SECTION */
+.pay-section{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);transition:background var(--tr);}
+.pay-inner{max-width:1400px;margin:auto;padding:6rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.pay-methods{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+.pay-method{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;box-shadow:var(--sh);}
+.pay-method-icon{font-size:2rem;margin-bottom:.75rem;}
+.pay-method-name{font-weight:600;font-size:.88rem;margin-bottom:.25rem;}
+.pay-method-desc{font-size:.75rem;color:var(--muted);font-weight:300;}
+.pay-steps{display:flex;flex-direction:column;gap:1rem;margin-top:2rem;}
+.pay-step-row{display:flex;align-items:flex-start;gap:1rem;}
+.pay-step-dot{width:32px;height:32px;border-radius:50%;background:var(--gold3);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:var(--gold);flex-shrink:0;}
+.pay-step-info{flex:1;}
+.pay-step-title{font-weight:600;font-size:.88rem;margin-bottom:.2rem;}
+.pay-step-desc{font-size:.78rem;color:var(--muted);font-weight:300;line-height:1.6;}
+
+/* DELIVERY */
+.delivery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem;}
+.del-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;box-shadow:var(--sh);}
+.del-icon{font-size:1.75rem;margin-bottom:1rem;}
+.del-title{font-weight:600;font-size:.92rem;margin-bottom:.4rem;}
+.del-desc{font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.7;}
+.del-badge{display:inline-block;margin-top:.75rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:50px;background:var(--gold3);color:var(--gold);border:1px solid rgba(181,146,42,.2);}
+
+@media(max-width:900px){.srv-grid{grid-template-columns:1fr;}.process-steps{grid-template-columns:1fr 1fr;}.ps-step{border-bottom:1px solid var(--border);border-right:none;}.pay-inner{grid-template-columns:1fr;gap:3rem;}.delivery-grid{grid-template-columns:1fr;}}
+@media(max-width:640px){.process-steps{grid-template-columns:1fr;}.pay-methods{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav class="ww-nav">
+  <a href="home.html" class="ww-logo">WiseWave<span class="ww-logo-dot">.</span></a>
+  <ul class="ww-nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+    <div class="ww-nav-r">
+    <button class="tog" onclick="toggleTheme()"><span class="tog-sun">☀</span><span class="tog-moon">☽</span></button>
+    <a href="track.html" class="nav-track-btn">📦 Track Order</a>
+    <a href="index.html" class="nav-shop-btn">Shop Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="track.html" class="mob-track">📦 Track Your Order</a>
+  <a href="index.html" style="color:var(--gold);font-weight:700;">🛒 Shop Now</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="ph-eyebrow">What we offer</div>
+    <h1><strong>Our</strong><br><em>Services.</em></h1>
+    <p>Three focused product categories. Secure online payments. Reliable nationwide delivery. This is what WiseWave does — and we do it well.</p>
+  </div>
+</section>
+
+<!-- MAIN SERVICES -->
+<section class="section">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="kicker">Core offerings</div>
+      <h2 class="sec-title">What we sell,<br><em>and how we sell it.</em></h2>
+      <p class="sec-desc">We focus on three product lines with deep inventory and competitive pricing. Every product is verified authentic before listing.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card fade-in">
+        <div class="srv-icon">🎮</div>
+        <div class="srv-name">Gaming Consoles</div>
+        <p class="srv-desc">We carry the latest generation gaming consoles from the world's top brands. All units are brand new, sealed in original packaging with manufacturer warranty.</p>
+        <ul class="srv-points">
+          <li>PlayStation 5 (Disc &amp; Digital editions)</li>
+          <li>Xbox Series X &amp; Series S</li>
+          <li>Nintendo Switch OLED &amp; Switch Lite</li>
+          <li>Official controllers &amp; accessories</li>
+          <li>Sealed, brand new units only</li>
+        </ul>
+        <a href="index.html#consoles" class="srv-link">Browse Consoles ↗</a>
+      </div>
+      <div class="srv-card fade-in">
+        <div class="srv-icon">📱</div>
+        <div class="srv-name">iPhones — All Models</div>
+        <p class="srv-desc">We stock every current iPhone model from the compact SE to the flagship 16 Pro Max. All devices are authentic Apple products with full international warranty.</p>
+        <ul class="srv-points">
+          <li>iPhone 16 Series (Pro Max, Pro, Plus, Standard)</li>
+          <li>iPhone 15 &amp; 14 Series — all variants</li>
+          <li>iPhone 13, 13 Mini &amp; SE 2024</li>
+          <li>Multiple storage sizes available</li>
+          <li>All sealed in original Apple packaging</li>
+        </ul>
+        <a href="index.html#phones" class="srv-link">Browse iPhones ↗</a>
+      </div>
+      <div class="srv-card fade-in">
+        <div class="srv-icon">🚗</div>
+        <div class="srv-name">Premium Vehicles</div>
+        <p class="srv-desc">We import and sell quality vehicles — both brand new and foreign used. Every car is thoroughly inspected, documented, and fairly priced before listing.</p>
+        <ul class="srv-points">
+          <li>Toyota Land Cruiser, Camry, Hilux</li>
+          <li>Hyundai Tucson N-Line</li>
+          <li>Honda Accord Sport</li>
+          <li>Mercedes-Benz GLE 350</li>
+          <li>All vehicles come with full documentation</li>
+        </ul>
+        <a href="index.html#cars" class="srv-link">Browse Cars ↗</a>
+      </div>
+      <div class="srv-card fade-in">
+        <div class="srv-icon">🔒</div>
+        <div class="srv-name">Secure Online Purchasing</div>
+        <p class="srv-desc">Our website is built for safe, transparent transactions. No more risking money on social media. Every order is processed securely and confirmed immediately.</p>
+        <ul class="srv-points">
+          <li>Paystack-powered checkout — Ghana's #1 gateway</li>
+          <li>MoMo, debit card &amp; bank transfer accepted</li>
+          <li>Instant order confirmation email &amp; SMS</li>
+          <li>Order tracking from dispatch to delivery</li>
+          <li>7-day return &amp; refund policy</li>
+        </ul>
+        <a href="index.html" class="srv-link">Shop Securely ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--border);transition:background var(--tr);">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="kicker">The process</div>
+      <h2 class="sec-title">How it <em>works.</em></h2>
+      <p class="sec-desc">Four simple steps from browsing to delivery. No WhatsApp DMs, no uncertainty.</p>
+    </div>
+    <div class="process-steps fade-in">
+      <div class="ps-step"><div class="ps-num">01</div><div class="ps-title">Browse the Shop</div><div class="ps-desc">Explore our consoles, iPhones, and cars. Read specs, compare prices, add to cart.</div></div>
+      <div class="ps-step"><div class="ps-num">02</div><div class="ps-title">Enter Your Details</div><div class="ps-desc">Fill in your name, phone, email, and delivery address at checkout. Takes 60 seconds.</div></div>
+      <div class="ps-step"><div class="ps-num">03</div><div class="ps-title">Pay via Paystack</div><div class="ps-desc">Choose MoMo, card, or bank transfer. You'll receive an instant confirmation.</div></div>
+      <div class="ps-step"><div class="ps-num">04</div><div class="ps-title">Receive Delivery</div><div class="ps-desc">Your order is packed, dispatched, and delivered. You'll be updated at every step.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT METHODS -->
+<section class="pay-section">
+  <div class="pay-inner">
+    <div class="fade-in">
+      <div class="kicker">Payment options</div>
+      <h2 class="sec-title">Pay the way <em>you prefer.</em></h2>
+      <p class="sec-desc">All payments are processed securely through Paystack — Ghana's leading payment gateway. Your money is protected at every step.</p>
+      <div class="pay-methods">
+        <div class="pay-method"><div class="pay-method-icon">📱</div><div class="pay-method-name">Mobile Money</div><div class="pay-method-desc">MTN MoMo, Vodafone Cash &amp; AirtelTigo Money</div></div>
+        <div class="pay-method"><div class="pay-method-icon">💳</div><div class="pay-method-name">Debit / Credit Card</div><div class="pay-method-desc">Visa, Mastercard — local &amp; international</div></div>
+        <div class="pay-method"><div class="pay-method-icon">🏦</div><div class="pay-method-name">Bank Transfer</div><div class="pay-method-desc">Direct bank transfer accepted</div></div>
+        <div class="pay-method"><div class="pay-method-icon">🔐</div><div class="pay-method-name">256-bit Encrypted</div><div class="pay-method-desc">All transactions SSL secured by Paystack</div></div>
+      </div>
+    </div>
+    <div class="fade-in">
+      <div class="kicker">Payment flow</div>
+      <h2 class="sec-title" style="font-size:1.8rem;">How MoMo <em>payment works.</em></h2>
+      <div class="pay-steps">
+        <div class="pay-step-row"><div class="pay-step-dot">1</div><div class="pay-step-info"><div class="pay-step-title">You place your order</div><div class="pay-step-desc">Fill in your details and click "Place Order &amp; Pay with MoMo."</div></div></div>
+        <div class="pay-step-row"><div class="pay-step-dot">2</div><div class="pay-step-info"><div class="pay-step-title">Paystack initiates prompt</div><div class="pay-step-desc">A MoMo payment prompt is sent to your phone number automatically.</div></div></div>
+        <div class="pay-step-row"><div class="pay-step-dot">3</div><div class="pay-step-info"><div class="pay-step-title">You approve on your phone</div><div class="pay-step-desc">Dial your PIN to approve. The payment is confirmed in seconds.</div></div></div>
+        <div class="pay-step-row"><div class="pay-step-dot">4</div><div class="pay-step-info"><div class="pay-step-title">You receive confirmation</div><div class="pay-step-desc">An email receipt and SMS confirmation are sent to you instantly.</div></div></div>
+        <div class="pay-step-row"><div class="pay-step-dot">5</div><div class="pay-step-info"><div class="pay-step-title">We prepare your order</div><div class="pay-step-desc">Your order is packed and dispatched within 1-2 business days.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section class="section">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="kicker">Delivery &amp; logistics</div>
+      <h2 class="sec-title">We deliver <em>anywhere in Ghana.</em></h2>
+      <p class="sec-desc">From Kumasi to Accra, Takoradi to Tamale — we ship nationwide with reliable logistics partners.</p>
+    </div>
+    <div class="delivery-grid">
+      <div class="del-card fade-in"><div class="del-icon">⚡</div><div class="del-title">Same-Day — Kumasi</div><div class="del-desc">Orders placed before 12pm can be delivered same day within Kumasi Metropolitan area.</div><span class="del-badge">Kumasi Only</span></div>
+      <div class="del-card fade-in"><div class="del-icon">🚀</div><div class="del-title">1–2 Day — Accra</div><div class="del-desc">Accra deliveries take 1–2 business days. We use reliable courier partners for safe delivery.</div><span class="del-badge">Greater Accra</span></div>
+      <div class="del-card fade-in"><div class="del-icon">🌍</div><div class="del-title">3–5 Days — Nationwide</div><div class="del-desc">We deliver to all regions of Ghana. Delivery time depends on your location and the product type.</div><span class="del-badge">All Regions</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--text);color:var(--bg);padding:5rem 5%;text-align:center;transition:background var(--tr),color var(--tr);">
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;letter-spacing:-.02em;margin-bottom:1rem;">Have a question about our services?</h2>
+  <p style="opacity:.65;max-width:460px;margin:0 auto 2rem;font-weight:300;font-size:.95rem;">Our team is available via WhatsApp and phone to answer any question before you buy.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="contact.html" class="btn-gold" style="background:var(--gold);color:#fff;">Contact Us</a>
+    <a href="index.html" style="background:transparent;color:var(--bg);border:1px solid rgba(255,255,255,.3);border-radius:4px;padding:.9rem 2.2rem;font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .2s;">Browse the Shop</a>
+  </div>
+</section>
+
+<footer class="ww-footer">
+  <div class="ww-footer-grid">
+    <div>
+      <div class="ww-footer-logo">WiseWave<span class="ww-logo-dot">.</span></div>
+      <p class="ww-footer-tag">Ghana's trusted store for gaming consoles, iPhones, and premium cars.</p>
+      <div class="ww-footer-reg">Reg. No: BN137080224 · TIN: P0020513828<br>Kwadaso Estate, Kumasi, Ashanti Region, Ghana</div>
+    </div>
+    <div><div class="ww-footer-col-ttl">Shop</div><ul class="ww-footer-list"><li><a href="index.html#consoles">Consoles</a></li><li><a href="index.html#phones">iPhones</a></li><li><a href="index.html#cars">Cars</a></li></ul></div>
+    <div><div class="ww-footer-col-ttl">Company</div><ul class="ww-footer-list"><li><a href="home.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="ww-footer-col-ttl">Account</div><ul class="ww-footer-list"><li><a href="login.html">Login</a></li><li><a href="signup.html">Sign Up</a></li></ul></div>
+  </div>
+  <div class="ww-footer-bot">
+    <div class="ww-footer-copy">© 2025 WiseWave Enterprise. All rights reserved.</div>
+    <div class="ww-socials"><a href="#" class="ww-soc">𝕏</a><a href="#" class="ww-soc">in</a><a href="#" class="ww-soc">f</a><a href="#" class="ww-soc">📷</a></div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

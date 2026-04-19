@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>WiseWave Enterprise — Home</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:9rem 5% 5rem;position:relative;overflow:hidden;}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;}
+.hero-orb-1{width:650px;height:650px;right:-120px;top:-120px;background:rgba(181,146,42,.06);}
+.hero-orb-2{width:400px;height:400px;left:10%;bottom:-80px;background:rgba(13,110,110,.05);}
+.hero-inner{max-width:1400px;margin:auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1;}
+.hero-eyebrow{display:flex;align-items:center;gap:.75rem;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:2rem;}
+.hero-eyebrow-line{width:36px;height:1px;background:var(--gold);}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.02;letter-spacing:-.03em;margin-bottom:2rem;}
+.hero h1 strong{font-weight:700;}
+.hero h1 em{font-style:italic;color:var(--muted);}
+.hero-sub{color:var(--muted);font-size:1rem;font-weight:300;max-width:440px;margin-bottom:2.5rem;line-height:1.85;}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;padding-top:3rem;border-top:1px solid var(--border);flex-wrap:wrap;}
+.hs-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;line-height:1;}
+.hs-lbl{font-size:.73rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-top:.2rem;}
+/* hero visual */
+.hero-visual{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.hv-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.25rem;box-shadow:var(--sh);transition:transform .3s,box-shadow .3s,border-color .3s;}
+.hv-card:hover{transform:translateY(-6px);box-shadow:var(--sh-h);border-color:var(--border2);}
+.hv-card:nth-child(2){margin-top:1.5rem;}
+.hv-card:nth-child(4){margin-top:-1.5rem;}
+.hv-icon{font-size:2.2rem;margin-bottom:.75rem;}
+.hv-lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.3rem;}
+.hv-val{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;}
+
+/* ── MARQUEE ── */
+.marquee-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.85rem 0;overflow:hidden;background:var(--bg3);transition:background var(--tr);}
+.marquee-track{display:flex;gap:3rem;width:max-content;animation:ticker 35s linear infinite;}
+.m-item{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:1rem;}
+.m-item::after{content:'✦';color:var(--gold);font-size:.52rem;}
+@keyframes ticker{to{transform:translateX(-50%);}}
+
+/* ── TRUST ── */
+.trust-bar{padding:2.5rem 5%;display:flex;justify-content:center;gap:3.5rem;flex-wrap:wrap;border-bottom:1px solid var(--border);background:var(--bg2);transition:background var(--tr);}
+.trust-item{display:flex;align-items:center;gap:.7rem;}
+.trust-icon{font-size:1.25rem;}
+.trust-ttl{font-size:.82rem;font-weight:600;color:var(--text2);}
+.trust-sub{font-size:.72rem;color:var(--muted);font-weight:300;}
+
+/* ── CATEGORIES ── */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.cat-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:3rem 2rem;text-align:center;transition:all .3s;box-shadow:var(--sh);cursor:pointer;position:relative;overflow:hidden;}
+.cat-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;}
+.cat-card.cc-g::before{background:radial-gradient(circle at 50% 110%,rgba(181,146,42,.12) 0%,transparent 65%);}
+.cat-card.cc-t::before{background:radial-gradient(circle at 50% 110%,rgba(13,110,110,.1) 0%,transparent 65%);}
+.cat-card.cc-c::before{background:radial-gradient(circle at 50% 110%,rgba(192,74,46,.1) 0%,transparent 65%);}
+.cat-card:hover::before{opacity:1;}
+.cat-card:hover{transform:translateY(-8px);box-shadow:var(--sh-h);border-color:var(--border2);}
+.cat-icon{font-size:3.5rem;margin-bottom:1.25rem;display:block;}
+.cat-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;margin-bottom:.5rem;}
+.cat-desc{color:var(--muted);font-size:.85rem;font-weight:300;line-height:1.7;margin-bottom:1.5rem;}
+.cat-link{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold2);padding-bottom:2px;transition:color .2s;}
+
+/* ── WHY ── */
+.why-section{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);transition:background var(--tr);}
+.why-inner{max-width:1400px;margin:auto;padding:6rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.5rem;}
+.why-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color .2s;}
+.why-card:hover{border-color:var(--border2);}
+.why-card-icon{font-size:1.6rem;margin-bottom:.75rem;}
+.why-card-ttl{font-weight:600;font-size:.9rem;margin-bottom:.35rem;}
+.why-card-desc{font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.7;}
+.why-right{position:relative;}
+.why-cert{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--sh);}
+.cert-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.cert-seal{width:52px;height:52px;border-radius:50%;background:var(--gold3);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.cert-info h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;}
+.cert-info p{font-size:.75rem;color:var(--muted);margin-top:.15rem;}
+.cert-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.82rem;}
+.cert-row:last-child{border:none;}
+.cert-row-lbl{color:var(--muted);font-weight:300;}
+.cert-row-val{font-weight:600;color:var(--text);}
+.cert-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal2);color:var(--teal);border:1px solid rgba(13,110,110,.2);border-radius:50px;font-size:.72rem;font-weight:700;padding:.35rem .9rem;margin-top:1.25rem;letter-spacing:.06em;}
+[data-theme="dark"] .cert-badge{border-color:rgba(77,184,184,.2);}
+
+/* ── TESTIMONIALS ── */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.test-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.75rem;box-shadow:var(--sh);}
+.test-stars{color:var(--gold);font-size:.9rem;margin-bottom:1rem;letter-spacing:.1em;}
+.test-quote{font-size:.88rem;color:var(--text2);line-height:1.75;margin-bottom:1.25rem;font-weight:300;font-style:italic;}
+.test-author{display:flex;align-items:center;gap:.75rem;}
+.test-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold3);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;color:var(--gold);}
+.test-name{font-size:.82rem;font-weight:600;}
+.test-loc{font-size:.72rem;color:var(--muted);}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--text);color:var(--bg);padding:5rem 5%;text-align:center;transition:background var(--tr),color var(--tr);}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;letter-spacing:-.02em;margin-bottom:1rem;}
+.cta-band p{opacity:.65;max-width:480px;margin:0 auto 2rem;font-weight:300;font-size:.95rem;}
+.cta-band .btn-gold{background:#fff;color:#0f0e0c;}
+[data-theme="dark"] .cta-band .btn-gold{background:var(--gold);color:#fff;}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+  .cat-grid{grid-template-columns:1fr;}
+  .why-inner{grid-template-columns:1fr;}
+  .test-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){.trust-bar{gap:1.5rem;padding:2rem 1.2rem;}.hero-stats{gap:1.5rem;}.why-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="ww-nav">
+  <a href="home.html" class="ww-logo">WiseWave<span class="ww-logo-dot">.</span></a>
+  <ul class="ww-nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+    <div class="ww-nav-r">
+    <button class="tog" onclick="toggleTheme()"><span class="tog-sun">☀</span><span class="tog-moon">☽</span></button>
+    <a href="track.html" class="nav-track-btn">📦 Track Order</a>
+    <a href="index.html" class="nav-shop-btn">Shop Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="track.html" class="mob-track">📦 Track Your Order</a>
+  <a href="index.html" style="color:var(--gold);font-weight:700;">🛒 Shop Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="hero-eyebrow-line"></span>Registered Enterprise · Kumasi, Ghana</div>
+      <h1><strong>Consoles, Phones</strong><br><em>&amp; Premium Cars,</em><br><strong>delivered to<br>your door.</strong></h1>
+      <p class="hero-sub">Ghana's most trusted store for the latest gaming consoles, every iPhone model, and premium vehicles. Secure payments via Paystack &amp; MoMo — no DMs needed.</p>
+      <div class="hero-ctas">
+        <a href="index.html" class="btn-gold">Browse the Shop</a>
+        <a href="about.html" class="btn-outline">About Us</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hs-num">29+</div><div class="hs-lbl">Products</div></div>
+        <div><div class="hs-num">100%</div><div class="hs-lbl">Authentic</div></div>
+        <div><div class="hs-num">MoMo</div><div class="hs-lbl">Accepted</div></div>
+        <div><div class="hs-num">2024</div><div class="hs-lbl">Est.</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hv-card"><div class="hv-icon">🎮</div><div class="hv-lbl">Consoles</div><div class="hv-val">PS5 · Xbox · Switch</div></div>
+      <div class="hv-card"><div class="hv-icon">📱</div><div class="hv-lbl">iPhones</div><div class="hv-val">All 15 Models</div></div>
+      <div class="hv-card"><div class="hv-icon">🚗</div><div class="hv-lbl">Cars</div><div class="hv-val">Premium Vehicles</div></div>
+      <div class="hv-card"><div class="hv-icon">🔒</div><div class="hv-lbl">Payment</div><div class="hv-val">Secure via Paystack</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="m-item">PlayStation 5</span><span class="m-item">iPhone 16 Pro Max</span><span class="m-item">Xbox Series X</span><span class="m-item">Toyota Land Cruiser</span><span class="m-item">Nintendo Switch OLED</span><span class="m-item">Mercedes-Benz GLE</span><span class="m-item">Secure MoMo Payments</span><span class="m-item">Kumasi · Accra · Nationwide</span><span class="m-item">Reg. BN137080224</span>
+    <span class="m-item">PlayStation 5</span><span class="m-item">iPhone 16 Pro Max</span><span class="m-item">Xbox Series X</span><span class="m-item">Toyota Land Cruiser</span><span class="m-item">Nintendo Switch OLED</span><span class="m-item">Mercedes-Benz GLE</span><span class="m-item">Secure MoMo Payments</span><span class="m-item">Kumasi · Accra · Nationwide</span><span class="m-item">Reg. BN137080224</span>
+  </div>
+</div>
+
+<!-- TRUST -->
+<div class="trust-bar fade-in">
+  <div class="trust-item"><span class="trust-icon">🔒</span><div><div class="trust-ttl">Secure Payments</div><div class="trust-sub">Powered by Paystack</div></div></div>
+  <div class="trust-item"><span class="trust-icon">📦</span><div><div class="trust-ttl">Fast Delivery</div><div class="trust-sub">Nationwide Ghana</div></div></div>
+  <div class="trust-item"><span class="trust-icon">✅</span><div><div class="trust-ttl">100% Authentic</div><div class="trust-sub">All products verified</div></div></div>
+  <div class="trust-item"><span class="trust-icon">🔄</span><div><div class="trust-ttl">Easy Returns</div><div class="trust-sub">7-day return policy</div></div></div>
+  <div class="trust-item"><span class="trust-icon">🏛️</span><div><div class="trust-ttl">Registered Business</div><div class="trust-sub">BN137080224</div></div></div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="kicker">What we sell</div>
+      <h2 class="sec-title">Three categories,<br><em>endless choices.</em></h2>
+      <p class="sec-desc">We focus on three product lines we know best — and we do them exceptionally well.</p>
+    </div>
+    <div class="cat-grid">
+      <a href="index.html#consoles" class="cat-card cc-g fade-in">
+        <span class="cat-icon">🎮</span>
+        <div class="cat-name">Gaming Consoles</div>
+        <p class="cat-desc">PlayStation 5, Xbox Series X, Nintendo Switch OLED and controllers. 8 products, latest generation.</p>
+        <span class="cat-link">Shop Consoles ↗</span>
+      </a>
+      <a href="index.html#phones" class="cat-card cc-t fade-in">
+        <span class="cat-icon">📱</span>
+        <div class="cat-name">iPhones</div>
+        <p class="cat-desc">Every iPhone model from SE to 16 Pro Max. All storage sizes. All colours. 15 listings.</p>
+        <span class="cat-link">Shop iPhones ↗</span>
+      </a>
+      <a href="index.html#cars" class="cat-card cc-c fade-in">
+        <span class="cat-icon">🚗</span>
+        <div class="cat-name">Premium Cars</div>
+        <p class="cat-desc">New and foreign-used vehicles — Toyota, Honda, Hyundai, Mercedes-Benz. 6 premium listings.</p>
+        <span class="cat-link">Shop Cars ↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY WISEWAVE -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="fade-in">
+      <div class="kicker">Why choose us</div>
+      <h2 class="sec-title">Built on trust,<br><em>backed by law.</em></h2>
+      <p class="sec-desc">WiseWave Enterprise is a fully registered Ghanaian business. We're not just a social media page — we're a legitimate enterprise you can trust.</p>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-card-icon">🔒</div><div class="why-card-ttl">Secure Checkout</div><div class="why-card-desc">Paystack-powered payments. MoMo, cards & bank transfers all accepted.</div></div>
+        <div class="why-card"><div class="why-card-icon">📦</div><div class="why-card-ttl">Fast Delivery</div><div class="why-card-desc">We deliver across Kumasi, Accra and nationwide with tracking updates.</div></div>
+        <div class="why-card"><div class="why-card-icon">✅</div><div class="why-card-ttl">100% Authentic</div><div class="why-card-desc">Every product is verified before dispatch. No clones, no fakes.</div></div>
+        <div class="why-card"><div class="why-card-icon">💬</div><div class="why-card-ttl">Real Support</div><div class="why-card-desc">Reach us via WhatsApp or phone — a real person always responds.</div></div>
+      </div>
+    </div>
+    <div class="why-right fade-in">
+      <div class="why-cert">
+        <div class="cert-header">
+          <div class="cert-seal">🇬🇭</div>
+          <div class="cert-info">
+            <h4>WiseWave Enterprise</h4>
+            <p>Registered under the Business Names Act, 1962 (No.151)</p>
+          </div>
+        </div>
+        <div class="cert-row"><span class="cert-row-lbl">Reg. Number</span><span class="cert-row-val">BN137080224</span></div>
+        <div class="cert-row"><span class="cert-row-lbl">TIN</span><span class="cert-row-val">P0020513828</span></div>
+        <div class="cert-row"><span class="cert-row-lbl">Owner</span><span class="cert-row-val">Gabriel Antwi Osei</span></div>
+        <div class="cert-row"><span class="cert-row-lbl">Location</span><span class="cert-row-val">Kumasi, Ashanti</span></div>
+        <div class="cert-row"><span class="cert-row-lbl">Registered</span><span class="cert-row-val">13 February 2024</span></div>
+        <div class="cert-row"><span class="cert-row-lbl">Digital Address</span><span class="cert-row-val">AK-225-7011</span></div>
+        <div><span class="cert-badge">✓ Verified Ghanaian Business</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="kicker">Customer reviews</div>
+      <h2 class="sec-title">What our customers <em>say.</em></h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card fade-in">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Ordered a PS5 and it arrived the next day in perfect condition. Payment via MoMo was smooth and I got a receipt email immediately."</p>
+        <div class="test-author"><div class="test-avatar">KA</div><div><div class="test-name">Kofi Asante</div><div class="test-loc">Kumasi, Ashanti</div></div></div>
+      </div>
+      <div class="test-card fade-in">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Got my iPhone 15 Pro here. Price was fair, product was sealed and original. WiseWave is the real deal — not like those social media people."</p>
+        <div class="test-author"><div class="test-avatar">AA</div><div><div class="test-name">Abena Acheampong</div><div class="test-loc">Accra, Greater Accra</div></div></div>
+      </div>
+      <div class="test-card fade-in">
+        <div class="test-stars">★★★★☆</div>
+        <p class="test-quote">"Very professional. I was nervous buying a car online but they walked me through everything. The vehicle matched the description exactly."</p>
+        <div class="test-author"><div class="test-avatar">EO</div><div><div class="test-name">Emmanuel Owusu</div><div class="test-loc">Takoradi, Western</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band fade-in">
+  <h2>Ready to shop?</h2>
+  <p>Browse our full catalogue of consoles, iPhones and cars. Pay securely with MoMo.</p>
+  <a href="index.html" class="btn-gold">Go to the Shop ↗</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="ww-footer">
+  <div class="ww-footer-grid">
+    <div>
+      <div class="ww-footer-logo">WiseWave<span class="ww-logo-dot">.</span></div>
+      <p class="ww-footer-tag">Ghana's trusted store for gaming consoles, iPhones, and premium cars. Secure payments, fast delivery.</p>
+      <div class="ww-footer-reg">Reg. No: BN137080224 · TIN: P0020513828<br>Kwadaso Estate, Kumasi, Ashanti Region, Ghana<br>P.O. Box KW 4, Kumasi</div>
+    </div>
+    <div><div class="ww-footer-col-ttl">Shop</div><ul class="ww-footer-list"><li><a href="index.html#consoles">Consoles</a></li><li><a href="index.html#phones">iPhones</a></li><li><a href="index.html#cars">Cars</a></li></ul></div>
+    <div><div class="ww-footer-col-ttl">Company</div><ul class="ww-footer-list"><li><a href="home.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="ww-footer-col-ttl">Support</div><ul class="ww-footer-list"><li><a href="track.html">Track Order</a></li><li><a href="contact.html">WhatsApp Us</a></li><li><a href="contact.html">Returns</a></li><li><a href="contact.html">FAQ</a></li></ul></div>
+  </div>
+  <div class="ww-footer-bot">
+    <div class="ww-footer-copy">© 2025 WiseWave Enterprise. All rights reserved.</div>
+    <div class="ww-socials"><a href="#" class="ww-soc">𝕏</a><a href="#" class="ww-soc">in</a><a href="#" class="ww-soc">f</a><a href="#" class="ww-soc">📷</a></div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>
