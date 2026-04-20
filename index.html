@@ -129,6 +129,8 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
 /* ══════════════ GRIDS ══════════════ */
 /* CONSOLES: 4 col → 2 col mobile */
 .grid-consoles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+/* ACCESSORIES: 4 col → 2 col mobile */
+.grid-accessories{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
 /* PHONES: 5 col → 3 col tablet → 2 col mobile */
 .grid-phones{display:grid;grid-template-columns:repeat(5,1fr);gap:13px;}
 /* CARS: 3 col → 2 col tablet → 1 col mobile */
@@ -376,6 +378,7 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
   .hero{padding:80px 20px 40px;}
   .section{padding:48px 20px;}
   .grid-consoles{grid-template-columns:repeat(2,1fr);gap:13px;}
+  .grid-accessories{grid-template-columns:repeat(2,1fr);gap:13px;}
   .grid-phones{grid-template-columns:repeat(3,1fr);gap:11px;}
   .grid-cars{grid-template-columns:repeat(2,1fr);gap:15px;}
   .how-grid{grid-template-columns:repeat(2,1fr);}
@@ -414,6 +417,9 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
   .grid-consoles{grid-template-columns:repeat(2,1fr);gap:11px;}
   .pthumb-console{height:120px;}
   .pthumb-console .pthumb-em{font-size:3rem;}
+
+  /* ACCESSORIES: 2 col on mobile */
+  .grid-accessories{grid-template-columns:repeat(2,1fr);gap:11px;}
 
   /* PHONES: 2 col on mobile */
   .grid-phones{grid-template-columns:repeat(2,1fr);gap:9px;}
@@ -495,6 +501,7 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
   <ul class="nav-links">
     <li><a href="home.html">Home</a></li>
     <li><a href="#consoles">Consoles</a></li>
+    <li><a href="#accessories">Accessories</a></li>
     <li><a href="#phones">Phones</a></li>
     <li><a href="#cars">Cars</a></li>
     <li><a href="about.html">About</a></li>
@@ -519,6 +526,7 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
 <div class="mob-menu" id="mobMenu">
   <a href="home.html" onclick="closeMob()">Home</a>
   <a href="#consoles" onclick="closeMob()">Consoles</a>
+  <a href="#accessories" onclick="closeMob()">Accessories</a>
   <a href="#phones" onclick="closeMob()">Phones</a>
   <a href="#cars" onclick="closeMob()">Cars</a>
   <a href="about.html" onclick="closeMob()">About</a>
@@ -544,7 +552,8 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
       <a href="track.html" class="btn-ghost" style="display:inline-flex;align-items:center;gap:6px;">📦 Track Order</a>
     </div>
     <div class="hero-pills">
-      <div class="hero-pill"><span class="hero-pill-ic">🎮</span> 8 Consoles</div>
+      <div class="hero-pill"><span class="hero-pill-ic">🎮</span> 9 Consoles</div>
+      <div class="hero-pill"><span class="hero-pill-ic">🕹️</span> 6 Accessories</div>
       <div class="hero-pill"><span class="hero-pill-ic">📱</span> 28 iPhones</div>
       <div class="hero-pill"><span class="hero-pill-ic">🚗</span> 6 Vehicles</div>
       <div class="hero-pill"><span class="hero-pill-ic">🔒</span> MoMo Secure</div>
@@ -602,9 +611,23 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
         <div class="sec-kicker">Category 01</div>
         <h2 class="sec-title">Gaming <em>Consoles</em></h2>
       </div>
-      <span class="sec-meta">10 products · Latest generation</span>
+      <span class="sec-meta">9 products · PS5, PS4, Xbox, Nintendo</span>
     </div>
     <div class="grid-consoles" id="consoleGrid"></div>
+  </div>
+</section>
+
+<!-- ═══ ACCESSORIES ═══ -->
+<section class="section section-alt" id="accessories">
+  <div class="section-inner">
+    <div class="sec-head fade-in">
+      <div>
+        <div class="sec-kicker">Category 02</div>
+        <h2 class="sec-title">Gaming <em>Accessories</em></h2>
+      </div>
+      <span class="sec-meta" id="accMeta">— products · Controllers &amp; Audio</span>
+    </div>
+    <div class="grid-accessories" id="accessoryGrid"></div>
   </div>
 </section>
 
@@ -613,7 +636,7 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
   <div class="section-inner">
     <div class="sec-head fade-in">
       <div>
-        <div class="sec-kicker">Category 02</div>
+        <div class="sec-kicker">Category 03</div>
         <h2 class="sec-title"><em>iPhone</em> Models</h2>
       </div>
       <span class="sec-meta">28 models · iPhone 11 to 17</span>
@@ -627,7 +650,7 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
   <div class="section-inner">
     <div class="sec-head fade-in">
       <div>
-        <div class="sec-kicker">Category 03</div>
+        <div class="sec-kicker">Category 04</div>
         <h2 class="sec-title">Premium <em>Vehicles</em></h2>
       </div>
       <span class="sec-meta">6 vehicles · New &amp; foreign used</span>
@@ -1053,16 +1076,30 @@ function closeMob(){
 
 /* ─── DATA ─── */
 const CONSOLES = [
-  {id:'c1', name:'PlayStation 5 Disc',       spec:'825GB SSD · 4K HDR · 120fps',              price:6499, ic:'🎮', badge:'hot', img:'images/ps5-disc.jpg'},
-  {id:'c2', name:'PlayStation 5 Digital',    spec:'825GB SSD · 4K · Slim Design',              price:5799, ic:'🕹️', badge:'new', img:'images/ps5-digital.jpg'},
-  {id:'c9', name:'PlayStation Portal',       spec:'Remote Player · 8" LCD · Wi-Fi 5',         price:2499, ic:'🎮', badge:'new', img:'images/ps5-portal.jpg'},
-  {id:'c3', name:'Xbox Series X',            spec:'1TB SSD · 4K 120fps · Dolby Vision',        price:5999, ic:'🎮', badge:null,  img:'images/xbox-series-x.jpg'},
-  {id:'c4', name:'Xbox Series S',            spec:'512GB · 1440p · All-Digital',               price:3999, ic:'🕹️', badge:'sale',img:'images/xbox-series-s.jpg'},
-  {id:'c5', name:'Nintendo Switch OLED',     spec:'7" OLED · 64GB · Handheld + TV',            price:3499, ic:'🃏', badge:'new', img:'images/switch-oled.jpg'},
-  {id:'c6', name:'Nintendo Switch Lite',     spec:'5.5" LCD · 32GB · Handheld Only',           price:2499, ic:'🎲', badge:null,  img:'images/switch-lite.jpg'},
-  {id:'c7', name:'PS5 DualSense Controller', spec:'Haptic Feedback · Adaptive Triggers · USB-C',price:799, ic:'🕹️', badge:null, img:'images/dualsense.jpg'},
-  {id:'c8', name:'Xbox Elite Controller S2', spec:'Paddles · Tension Adjust · 40hr Battery',  price:1199, ic:'🎮', badge:'ltd', img:'images/xbox-elite.jpg'},
-  {id:'c10',name:'Beats Solo Buds',          spec:'Wireless · 18hr Battery · USB-C · 4 Colors',price:1299, ic:'🎧', badge:'new', img:'images/beats-solo-buds.jpg'},
+  // ── PlayStation 5 ──
+  {id:'c1',  name:'PlayStation 5 Disc',        spec:'825GB SSD · 4K HDR · 120fps · Blu-ray',      price:6499, ic:'🎮', badge:'hot', img:'images/ps5-disc.jpg'},
+  {id:'c2',  name:'PlayStation 5 Digital',     spec:'825GB SSD · 4K · Slim Design · No Disc',     price:5799, ic:'🕹️', badge:'new', img:'images/ps5-digital.jpg'},
+  {id:'c9',  name:'PlayStation Portal',        spec:'Remote Player · 8" LCD · Wi-Fi 5 · PS5',     price:2499, ic:'🎮', badge:'new', img:'images/ps5-portal.jpg'},
+  // ── PlayStation 4 ──
+  {id:'c11', name:'PlayStation 4 Pro',         spec:'1TB · 4K HDR · Boost Mode · HDR',            price:3299, ic:'🎮', badge:'sale',img:'images/ps4-pro.jpg'},
+  {id:'c12', name:'PlayStation 4 Slim',        spec:'500GB · Full HD · Quiet Design',             price:2199, ic:'🕹️', badge:'sale',img:'images/ps4-slim.jpg'},
+  // ── Xbox ──
+  {id:'c3',  name:'Xbox Series X',             spec:'1TB SSD · 4K 120fps · Dolby Vision',         price:5999, ic:'🎮', badge:null,  img:'images/xbox-series-x.jpg'},
+  {id:'c4',  name:'Xbox Series S',             spec:'512GB · 1440p · All-Digital · Compact',      price:3999, ic:'🕹️', badge:'sale',img:'images/xbox-series-s.jpg'},
+  // ── Nintendo ──
+  {id:'c5',  name:'Nintendo Switch OLED',      spec:'7" OLED · 64GB · Handheld + TV Mode',        price:3499, ic:'🃏', badge:'new', img:'images/switch-oled.jpg'},
+  {id:'c6',  name:'Nintendo Switch Lite',      spec:'5.5" LCD · 32GB · Handheld Only',            price:2499, ic:'🎲', badge:null,  img:'images/switch-lite.jpg'},
+];
+
+const ACCESSORIES = [
+  // ── Controllers ──
+  {id:'a1',  name:'PS5 DualSense Controller',  spec:'Haptic Feedback · Adaptive Triggers · USB-C', price:799,  ic:'🕹️', badge:null, img:'images/dualsense.jpg'},
+  {id:'a2',  name:'PS4 DualShock 4',           spec:'Wireless · Touchpad · Light Bar · USB',       price:399,  ic:'🕹️', badge:'sale',img:'images/dualshock4.jpg'},
+  {id:'a3',  name:'Xbox Elite Controller S2',  spec:'Paddles · Tension Adjust · 40hr Battery',    price:1199, ic:'🎮', badge:'ltd', img:'images/xbox-elite.jpg'},
+  {id:'a4',  name:'Xbox Wireless Controller',  spec:'Bluetooth · USB-C · Textured Grip',          price:499,  ic:'🎮', badge:null,  img:'images/xbox-controller.jpg'},
+  // ── Audio ──
+  {id:'a5',  name:'Beats Solo Buds',           spec:'Wireless · 18hr Battery · USB-C · 4 Colors', price:1299, ic:'🎧', badge:'new', img:'images/beats-solo-buds.jpg'},
+  {id:'a6',  name:'PS5 Pulse 3D Headset',      spec:'3D Audio · Wireless · Dual Noise-Cancel',    price:899,  ic:'🎧', badge:null,  img:'images/pulse3d.jpg'},
 ];
 const PHONES = [
   // ── iPhone 17 series ──
@@ -1546,7 +1583,7 @@ function runShopSearch(q){
   });
   resultsEl.textContent = shown===0 ? 'No products found.' : `${shown} product${shown!==1?'s':''} found`;
   // hide empty section labels
-  ['consoleGrid','phoneGrid','carGrid'].forEach(gid=>{
+  ['consoleGrid','accessoryGrid','phoneGrid','carGrid'].forEach(gid=>{
     const grid=document.getElementById(gid);
     if(!grid) return;
     const visible=[...grid.children].some(c=>c.style.display!=='none');
@@ -1576,7 +1613,32 @@ const obs=new IntersectionObserver(entries=>{
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 
 /* ─── INIT ─── */
-renderConsoles(); renderPhones(); renderCars(); renderCart(); renderWishCount();
+function renderAccessories(){
+  const grid = document.getElementById('accessoryGrid');
+  if(!grid) return;
+  grid.innerHTML = ACCESSORIES.map(p => {
+    const waMsg = encodeURIComponent(`Hi WiseWave! I'm interested in the ${p.name}. Can you tell me more?`);
+    return `
+    <div class="pcard" data-search="${p.name} ${p.spec} accessory controller headset audio">
+      <div class="pthumb pthumb-console">${mkBadge(p.badge)}${mkWish(p.id,p.name,p.price,p.ic)}<div class="pthumb-shine"></div>${p.img?`<img class="pthumb-img" src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="pthumb-em" style="display:none">${p.ic}</span>`:`<span class="pthumb-em">${p.ic}</span>`}</div>
+      <div class="pinfo">
+        <div class="pcat">Accessory</div>
+        <div class="pname">${p.name}</div>
+        <div class="pspec">${p.spec}</div>
+        <div class="pfoot">
+          <div class="pprice">GHS ${p.price.toLocaleString()}<span class="pprice-sub">incl. tax</span></div>
+          <button class="padd" onclick="addToCart('${p.id}','${p.name}',${p.price},'${p.ic}')">+</button>
+        </div>
+        <a class="penq" href="https://wa.me/233595650930?text=${waMsg}" target="_blank">💬 WhatsApp Enquiry</a>
+      </div>
+    </div>`;
+  }).join('');
+  // update section meta count
+  const meta = document.getElementById('accMeta');
+  if(meta) meta.textContent = `${ACCESSORIES.length} products · Controllers & Audio`;
+}
+
+renderConsoles(); renderAccessories(); renderPhones(); renderCars(); renderCart(); renderWishCount();
 
 setTimeout(()=>{
   document.querySelectorAll('.pcard').forEach((el,i)=>{
