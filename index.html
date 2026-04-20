@@ -142,9 +142,9 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
 
 /* Thumb */
 .pthumb{display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0;}
-.pthumb-console{height:160px;background:linear-gradient(145deg,var(--bg3) 0%,var(--bg4) 100%);}
-.pthumb-phone{height:140px;background:linear-gradient(160deg,var(--bg3) 0%,var(--bg4) 100%);}
-.pthumb-car{height:195px;background:linear-gradient(145deg,var(--bg3) 0%,var(--bg4) 100%);}
+ .pthumb-console{height:160px;background:#ffffff;}
+ .pthumb-phone{height:140px;background:#ffffff;}
+ .pthumb-car{height:195px;background:#ffffff;}
 .pthumb-em{font-size:3.8rem;transition:transform .3s;filter:drop-shadow(0 4px 10px rgba(0,0,0,.1));}
 .pthumb-console .pthumb-em{font-size:4rem;}
 .pthumb-car .pthumb-em{font-size:5rem;}
@@ -1077,121 +1077,121 @@ function closeMob(){
 /* ─── DATA ─── */
 const CONSOLES = [
   // ── PlayStation 5 ──
-  {id:'c1',  name:'PlayStation 5 Disc',        spec:'825GB SSD · 4K HDR · 120fps · Blu-ray',      price:6499, ic:'🎮', badge:'hot', img:'images/ps5-disc.jpg'},
-  {id:'c2',  name:'PlayStation 5 Digital',     spec:'825GB SSD · 4K · Slim Design · No Disc',     price:5799, ic:'🕹️', badge:'new', img:'images/ps5-digital.jpg'},
-  {id:'c9',  name:'PlayStation Portal',        spec:'Remote Player · 8" LCD · Wi-Fi 5 · PS5',     price:2499, ic:'🎮', badge:'new', img:'images/ps5-portal.jpg'},
+  {id:'c1',  name:'PlayStation 5 Disc',        spec:'825GB SSD · 4K HDR · 120fps · Blu-ray',      price:6499, ic:'🎮', badge:'hot', img:'images/PlayStation 5 Disc.jpg'},
+  {id:'c2',  name:'PlayStation 5 Digital',     spec:'825GB SSD · 4K · Slim Design · No Disc',     price:5799, ic:'🕹️', badge:'new', img:'images/PlayStation 5 Digital.jpg'},
+  {id:'c9',  name:'PlayStation Portal',        spec:'Remote Player · 8" LCD · Wi-Fi 5 · PS5',     price:2499, ic:'🎮', badge:'new', img:'images/PlayStation Portal.webp'},
   // ── PlayStation 4 ──
-  {id:'c11', name:'PlayStation 4 Pro',         spec:'1TB · 4K HDR · Boost Mode · HDR',            price:3299, ic:'🎮', badge:'sale',img:'images/ps4-pro.jpg'},
-  {id:'c12', name:'PlayStation 4 Slim',        spec:'500GB · Full HD · Quiet Design',             price:2199, ic:'🕹️', badge:'sale',img:'images/ps4-slim.jpg'},
+  {id:'c11', name:'PlayStation 4 Pro',         spec:'1TB · 4K HDR · Boost Mode · HDR',            price:3299, ic:'🎮', badge:'sale',img:'images/PlayStation 4 Pro2.webp'},
+  {id:'c12', name:'PlayStation 4 Slim',        spec:'500GB · Full HD · Quiet Design',             price:2199, ic:'🕹️', badge:'sale',img:'images/PlayStation 4 Slim.webp'},
   // ── Xbox ──
-  {id:'c3',  name:'Xbox Series X',             spec:'1TB SSD · 4K 120fps · Dolby Vision',         price:5999, ic:'🎮', badge:null,  img:'images/xbox-series-x.jpg'},
-  {id:'c4',  name:'Xbox Series S',             spec:'512GB · 1440p · All-Digital · Compact',      price:3999, ic:'🕹️', badge:'sale',img:'images/xbox-series-s.jpg'},
+  {id:'c3',  name:'Xbox Series X',             spec:'1TB SSD · 4K 120fps · Dolby Vision',         price:5999, ic:'🎮', badge:null,  img:'images/Xbox Series X.png'},
+  {id:'c4',  name:'Xbox Series S',             spec:'512GB · 1440p · All-Digital · Compact',      price:3999, ic:'🕹️', badge:'sale',img:'images/Xbox Series S.png'},
   // ── Nintendo ──
-  {id:'c5',  name:'Nintendo Switch OLED',      spec:'7" OLED · 64GB · Handheld + TV Mode',        price:3499, ic:'🃏', badge:'new', img:'images/switch-oled.jpg'},
-  {id:'c6',  name:'Nintendo Switch Lite',      spec:'5.5" LCD · 32GB · Handheld Only',            price:2499, ic:'🎲', badge:null,  img:'images/switch-lite.jpg'},
+  {id:'c5',  name:'Nintendo Switch OLED',      spec:'7" OLED · 64GB · Handheld + TV Mode',        price:3499, ic:'🃏', badge:'new', img:'images/Nintendo Switch OLED.jpg'},
+  {id:'c6',  name:'Nintendo Switch Lite',      spec:'5.5" LCD · 32GB · Handheld Only',            price:2499, ic:'🎲', badge:null,  img:'images/Nintendo Switch Lite.jpg'},
 ];
 
 const ACCESSORIES = [
   // ── Controllers ──
-  {id:'a1',  name:'PS5 DualSense Controller',  spec:'Haptic Feedback · Adaptive Triggers · USB-C', price:799,  ic:'🕹️', badge:null, img:'images/dualsense.jpg'},
-  {id:'a2',  name:'PS4 DualShock 4',           spec:'Wireless · Touchpad · Light Bar · USB',       price:399,  ic:'🕹️', badge:'sale',img:'images/dualshock4.jpg'},
-  {id:'a3',  name:'Xbox Elite Controller S2',  spec:'Paddles · Tension Adjust · 40hr Battery',    price:1199, ic:'🎮', badge:'ltd', img:'images/xbox-elite.jpg'},
-  {id:'a4',  name:'Xbox Wireless Controller',  spec:'Bluetooth · USB-C · Textured Grip',          price:499,  ic:'🎮', badge:null,  img:'images/xbox-controller.jpg'},
+  {id:'a1',  name:'PS5 DualSense Controller',  spec:'Haptic Feedback · Adaptive Triggers · USB-C', price:799,  ic:'🕹️', badge:null, img:'images/PS5 DualSense Controller.webp'},
+  {id:'a2',  name:'PS4 DualShock 4',           spec:'Wireless · Touchpad · Light Bar · USB',       price:399,  ic:'🕹️', badge:'sale',img:'images/PS4 DualShock 4.webp'},
+  {id:'a3',  name:'Xbox Elite Controller S2',  spec:'Paddles · Tension Adjust · 40hr Battery',    price:1199, ic:'🎮', badge:'ltd', img:'images/Xbox Elite Controller S2.jpg'},
+  {id:'a4',  name:'Xbox Wireless Controller',  spec:'Bluetooth · USB-C · Textured Grip',          price:499,  ic:'🎮', badge:null,  img:'images/Xbox Wireless Controller.jpg'},
   // ── Audio ──
-  {id:'a5',  name:'Beats Solo Buds',           spec:'Wireless · 18hr Battery · USB-C · 4 Colors', price:1299, ic:'🎧', badge:'new', img:'images/beats-solo-buds.jpg'},
-  {id:'a6',  name:'PS5 Pulse 3D Headset',      spec:'3D Audio · Wireless · Dual Noise-Cancel',    price:899,  ic:'🎧', badge:null,  img:'images/pulse3d.jpg'},
+  {id:'a5',  name:'Beats Solo Buds',           spec:'Wireless · 18hr Battery · USB-C · 4 Colors', price:1299, ic:'🎧', badge:'new', img:'images/Beats Solo Buds.jpg'},
+  {id:'a6',  name:'PS5 Pulse 3D Headset',      spec:'3D Audio · Wireless · Dual Noise-Cancel',    price:899,  ic:'🎧', badge:null,  img:'images/PS5 Pulse 3D Headset.webp'},
 ];
 const PHONES = [
   // ── iPhone 17 series ──
-  {id:'p17pm',name:'iPhone 17 Pro Max',spec:'A19 Pro · 5G · 48MP ProCamera · 6.9"',price:16999,badge:'new',img:'',
+  {id:'p17pm',name:'iPhone 17 Pro Max',spec:'A19 Pro · 5G · 48MP ProCamera · 6.9"',price:16999,badge:'new',img:'images/iphone-17promax.jpg',
    colors:['#2C2C2C','#E8E0D5','#FFFFFF','#B0A090'],colorNames:['Black Titanium','Desert Titanium','White Titanium','Natural Titanium'],
    storage:['256GB','512GB','1TB'],storagePrice:[0,2000,4000]},
-  {id:'p17p',name:'iPhone 17 Pro',spec:'A19 Pro · 5G · ProMotion · 6.3"',price:14999,badge:'new',img:'',
+  {id:'p17p',name:'iPhone 17 Pro',spec:'A19 Pro · 5G · ProMotion · 6.3"',price:14999,badge:'new',img:'images/iphone-17promax.1.jpg',
    colors:['#2C2C2C','#E8E0D5','#FFFFFF','#B0A090'],colorNames:['Black Titanium','Desert Titanium','White Titanium','Natural Titanium'],
    storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1500,3000,5000]},
-  {id:'p17a',name:'iPhone 17 Air',spec:'A19 · Ultra-thin 5.5mm · 6.6"',price:12999,badge:'new',img:'',
+  {id:'p17a',name:'iPhone 17 Air',spec:'A19 · Ultra-thin 5.5mm · 6.6"',price:12999,badge:'new',img:'images/iphone-air.3.jpg',
    colors:['#1A1A1A','#FFFFFF','#A8C4D8','#D4B896'],colorNames:['Black','White','Sky Blue','Sand'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
-  {id:'p17',name:'iPhone 17',spec:'A19 · 5G · 48MP · Dynamic Island',price:11499,badge:'new',img:'',
+  {id:'p17',name:'iPhone 17',spec:'A19 · 5G · 48MP · Dynamic Island',price:11499,badge:'new',img:'images/iphone-17.1.jpg',
    colors:['#1A1A1A','#FFFFFF','#A8C4D8','#D4607A','#90A878'],colorNames:['Black','White','Sky Blue','Pink','Sage'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
   // ── iPhone 16 series ──
-  {id:'p1',name:'iPhone 16 Pro Max',spec:'A18 Pro · 5G · 48MP · 6.9"',price:14999,badge:'new',img:'',
+  {id:'p1',name:'iPhone 16 Pro Max',spec:'A18 Pro · 5G · 48MP · 6.9"',price:14999,badge:'new',img:'images/iphone-16-promax.jpg',
    colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'],colorNames:['Black Titanium','Desert Titanium','White Titanium','Natural Titanium'],
    storage:['256GB','512GB','1TB'],storagePrice:[0,2000,4000]},
-  {id:'p2',name:'iPhone 16 Pro',spec:'A18 Pro · 5G · ProMotion · 6.3"',price:12999,badge:'new',img:'',
+  {id:'p2',name:'iPhone 16 Pro',spec:'A18 Pro · 5G · ProMotion · 6.3"',price:12999,badge:'new',img:'images/iphone-16-pro.jpg',
    colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'],colorNames:['Black Titanium','Desert Titanium','White Titanium','Natural Titanium'],
    storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1500,3000,5000]},
-  {id:'p3',name:'iPhone 16 Plus',spec:'A18 · 5G · Dynamic Island · 6.7"',price:10999,badge:'new',img:'',
+  {id:'p3',name:'iPhone 16 Plus',spec:'A18 · 5G · Dynamic Island · 6.7"',price:10999,badge:'new',img:'images/iphone16plus.1.jpg',
    colors:['#1A1A1A','#FFFFFF','#C9B8A8','#4A90A4','#D4607A'],colorNames:['Black','White','Ultramarine','Teal','Pink'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
-  {id:'p4',name:'iPhone 16',spec:'A18 · 5G · Dynamic Island · 6.1"',price:9499,badge:'new',img:'',
+  {id:'p4',name:'iPhone 16',spec:'A18 · 5G · Dynamic Island · 6.1"',price:9499,badge:'new',img:'images/iphone16.jpg',
    colors:['#1A1A1A','#FFFFFF','#C9B8A8','#4A90A4','#D4607A'],colorNames:['Black','White','Ultramarine','Teal','Pink'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
   // ── iPhone 15 series ──
-  {id:'p5',name:'iPhone 15 Pro Max',spec:'A17 Pro · Titanium · USB-C · 6.7"',price:11500,badge:null,img:'',
+  {id:'p5',name:'iPhone 15 Pro Max',spec:'A17 Pro · Titanium · USB-C · 6.7"',price:11500,badge:null,img:'images/iphone15-promax.2.jpg',
    colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'],colorNames:['Black','Natural','White','Blue'],
    storage:['256GB','512GB','1TB'],storagePrice:[0,2000,4000]},
-  {id:'p6',name:'iPhone 15 Pro',spec:'A17 Pro · ProMotion · USB-C · 6.1"',price:9999,badge:null,img:'',
+  {id:'p6',name:'iPhone 15 Pro',spec:'A17 Pro · ProMotion · USB-C · 6.1"',price:9999,badge:null,img:'images/iphone15-pro.2.jpg',
    colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'],colorNames:['Black','Natural','White','Blue'],
    storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1500,3000,5000]},
-  {id:'p7',name:'iPhone 15 Plus',spec:'48MP · Dynamic Island · 5G · 6.7"',price:8499,badge:null,img:'',
+  {id:'p7',name:'iPhone 15 Plus',spec:'48MP · Dynamic Island · 5G · 6.7"',price:8499,badge:null,img:'images/iphone15-plus.jpg',
    colors:['#1A1A1A','#FFFFFF','#F5E6C8','#87CEEB','#90EE90'],colorNames:['Black','White','Yellow','Blue','Green'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
-  {id:'p8',name:'iPhone 15',spec:'Dynamic Island · A16 · 5G · 6.1"',price:7499,badge:'sale',img:'',
+  {id:'p8',name:'iPhone 15',spec:'Dynamic Island · A16 · 5G · 6.1"',price:7499,badge:'sale',img:'images/iphone15.jpg',
    colors:['#1A1A1A','#FFFFFF','#F5E6C8','#87CEEB','#90EE90'],colorNames:['Black','White','Yellow','Blue','Green'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
   // ── iPhone 14 series ──
-  {id:'p9',name:'iPhone 14 Pro Max',spec:'A16 · Always-On · ProRAW · 6.7"',price:9000,badge:null,img:'',
+  {id:'p9',name:'iPhone 14 Pro Max',spec:'A16 · Always-On · ProRAW · 6.7"',price:9000,badge:null,img:'images/iphone14-promax.jpg',
    colors:['#2C2C2C','#8B7355','#FFFFFF','#4A4A6A'],colorNames:['Space Black','Gold','Silver','Deep Purple'],
    storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1500,3000,5000]},
-  {id:'p10',name:'iPhone 14 Pro',spec:'A16 · Always-On · 120Hz · 6.1"',price:7999,badge:'sale',img:'',
+  {id:'p10',name:'iPhone 14 Pro',spec:'A16 · Always-On · 120Hz · 6.1"',price:7999,badge:'sale',img:'images/iphone14-pro.jpg',
    colors:['#2C2C2C','#8B7355','#FFFFFF','#4A4A6A'],colorNames:['Space Black','Gold','Silver','Deep Purple'],
    storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1500,3000,5000]},
-  {id:'p11',name:'iPhone 14 Plus',spec:'6.7" Super Retina XDR · 5G · A15',price:6999,badge:null,img:'',
+  {id:'p11',name:'iPhone 14 Plus',spec:'6.7" Super Retina XDR · 5G · A15',price:6999,badge:null,img:'images/iphone14-plus.jpg',
    colors:['#1A1A1A','#FFFFFF','#4B6FB5','#D4607A','#F5E6C8'],colorNames:['Midnight','Starlight','Blue','Red','Yellow'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
-  {id:'p12',name:'iPhone 14',spec:'A15 · Crash Detection · 5G · 6.1"',price:5999,badge:'sale',img:'',
+  {id:'p12',name:'iPhone 14',spec:'A15 · Crash Detection · 5G · 6.1"',price:5999,badge:'sale',img:'images/iphone14.jpg',
    colors:['#1A1A1A','#FFFFFF','#4B6FB5','#D4607A','#F5E6C8'],colorNames:['Midnight','Starlight','Blue','Red','Yellow'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
   // ── iPhone 13 series ──
-  {id:'p13',name:'iPhone 13 Pro Max',spec:'A15 · ProMotion · 3x Zoom · 6.7"',price:6499,badge:'sale',img:'',
+  {id:'p13',name:'iPhone 13 Pro Max',spec:'A15 · ProMotion · 3x Zoom · 6.7"',price:6499,badge:'sale',img:'images/iphone13-promax.jpg',
    colors:['#1A1A1A','#E8E0D5','#D4607A','#1B4D3E','#87CEEB'],colorNames:['Graphite','Gold','Sierra Blue','Alpine Green','Silver'],
    storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1000,2000,3500]},
-  {id:'p13p',name:'iPhone 13 Pro',spec:'A15 · ProMotion · Macro · 6.1"',price:5999,badge:'sale',img:'',
+  {id:'p13p',name:'iPhone 13 Pro',spec:'A15 · ProMotion · Macro · 6.1"',price:5999,badge:'sale',img:'images/iphone13-pro.jpg',
    colors:['#1A1A1A','#E8E0D5','#D4607A','#1B4D3E','#87CEEB'],colorNames:['Graphite','Gold','Sierra Blue','Alpine Green','Silver'],
    storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1000,2000,3500]},
-  {id:'p13s',name:'iPhone 13',spec:'A15 · Dual 12MP · 5G · 6.1"',price:4999,badge:'sale',img:'',
+  {id:'p13s',name:'iPhone 13',spec:'A15 · Dual 12MP · 5G · 6.1"',price:4999,badge:'sale',img:'images/iphone-13.jpg',
    colors:['#1A1A1A','#FFFFFF','#D4607A','#4B6FB5','#90EE90','#FFC0CB'],colorNames:['Midnight','Starlight','Red','Blue','Green','Pink'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,1000,2000]},
-  {id:'p14m',name:'iPhone 13 Mini',spec:'Compact 5.4" · A15 · 5G',price:4199,badge:'sale',img:'',
+  {id:'p14m',name:'iPhone 13 Mini',spec:'Compact 5.4" · A15 · 5G',price:4199,badge:'sale',img:'images/iphone-13-mini.jpg',
    colors:['#1A1A1A','#FFFFFF','#D4607A','#4B6FB5','#90EE90','#FFC0CB'],colorNames:['Midnight','Starlight','Red','Blue','Green','Pink'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,1000,2000]},
   // ── iPhone 12 series ──
-  {id:'p12pm',name:'iPhone 12 Pro Max',spec:'A14 · 5G · LiDAR · 6.7"',price:4499,badge:'sale',img:'',
+  {id:'p12pm',name:'iPhone 12 Pro Max',spec:'A14 · 5G · LiDAR · 6.7"',price:4499,badge:'sale',img:'images/iphone-12-promax.jpg',
    colors:['#1A1A1A','#E8E0D5','#87CEEB','#1B4D3E'],colorNames:['Graphite','Gold','Pacific Blue','Silver'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,800,1600]},
-  {id:'p12p',name:'iPhone 12 Pro',spec:'A14 · 5G · LiDAR · 6.1"',price:3999,badge:'sale',img:'',
+  {id:'p12p',name:'iPhone 12 Pro',spec:'A14 · 5G · LiDAR · 6.1"',price:3999,badge:'sale',img:'images/iphone-12-pro.jpg',
    colors:['#1A1A1A','#E8E0D5','#87CEEB','#1B4D3E'],colorNames:['Graphite','Gold','Pacific Blue','Silver'],
    storage:['128GB','256GB','512GB'],storagePrice:[0,800,1600]},
-  {id:'p12s',name:'iPhone 12',spec:'A14 · 5G · Super Retina XDR · 6.1"',price:3499,badge:'sale',img:'',
+  {id:'p12s',name:'iPhone 12',spec:'A14 · 5G · Super Retina XDR · 6.1"',price:3499,badge:'sale',img:'images/iphone-12.jpg',
    colors:['#1A1A1A','#FFFFFF','#D4607A','#4B6FB5','#90EE90'],colorNames:['Black','White','Red','Blue','Green'],
    storage:['64GB','128GB','256GB'],storagePrice:[0,600,1200]},
-  {id:'p12m',name:'iPhone 12 Mini',spec:'Compact 5.4" · A14 · 5G',price:2999,badge:'sale',img:'',
+  {id:'p12m',name:'iPhone 12 Mini',spec:'Compact 5.4" · A14 · 5G',price:2999,badge:'sale',img:'images/iphone-12.1.jpg',
    colors:['#1A1A1A','#FFFFFF','#D4607A','#4B6FB5','#90EE90'],colorNames:['Black','White','Red','Blue','Green'],
    storage:['64GB','128GB','256GB'],storagePrice:[0,600,1200]},
   // ── iPhone 11 series ──
-  {id:'p11pm',name:'iPhone 11 Pro Max',spec:'A13 · Triple Camera · 6.5"',price:2799,badge:'sale',img:'',
+  {id:'p11pm',name:'iPhone 11 Pro Max',spec:'A13 · Triple Camera · 6.5"',price:2799,badge:'sale',img:'images/iphone11-promax.jpg',
    colors:['#1A1A1A','#E8E0D5','#1B4D3E','#87CEEB'],colorNames:['Space Gray','Gold','Midnight Green','Silver'],
    storage:['64GB','256GB','512GB'],storagePrice:[0,600,1200]},
-  {id:'p11p',name:'iPhone 11 Pro',spec:'A13 · Triple Camera · 5.8"',price:2499,badge:'sale',img:'',
+  {id:'p11p',name:'iPhone 11 Pro',spec:'A13 · Triple Camera · 5.8"',price:2499,badge:'sale',img:'images/iphone-11-pro.jpg',
    colors:['#1A1A1A','#E8E0D5','#1B4D3E','#87CEEB'],colorNames:['Space Gray','Gold','Midnight Green','Silver'],
    storage:['64GB','256GB','512GB'],storagePrice:[0,600,1200]},
-  {id:'p11s',name:'iPhone 11',spec:'A13 · Dual Camera · 6.1" · 4K',price:1999,badge:'sale',img:'',
+  {id:'p11s',name:'iPhone 11',spec:'A13 · Dual Camera · 6.1" · 4K',price:1999,badge:'sale',img:'images/761px-IPhone_11.png',
    colors:['#1A1A1A','#FFFFFF','#D4607A','#90EE90','#F5E6C8','#87CEEB'],colorNames:['Black','White','Red','Green','Yellow','Purple'],
    storage:['64GB','128GB','256GB'],storagePrice:[0,400,800]},
   // ── iPhone SE ──
-  {id:'p15',name:'iPhone SE 2024',spec:'A15 · Compact 4.7" · Touch ID',price:3499,badge:null,img:'',
+  {id:'p15',name:'iPhone SE 2024',spec:'A15 · Compact 4.7" · Touch ID',price:3499,badge:null,img:'images/iphone-SE-2024.jpg',
    colors:['#1A1A1A','#FFFFFF','#D4607A'],colorNames:['Midnight','Starlight','Red'],
    storage:['64GB','128GB','256GB'],storagePrice:[0,800,1600]},
 ];
