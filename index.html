@@ -64,14 +64,18 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
 .nav-track-btn{background:transparent;color:var(--text2);border:1px solid var(--border2);border-radius:50px;padding:6px 12px;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;gap:4px;}
 .nav-track-btn:hover{background:var(--text);color:var(--bg);border-color:var(--text);}
 .cart-pill{background:var(--gold);color:#fff;border-radius:50px;font-size:.65rem;font-weight:800;min-width:18px;height:18px;padding:0 4px;display:flex;align-items:center;justify-content:center;}
+/* wishlist icon button */
+.wish-icon-btn{position:relative;background:none;border:none;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:1.2rem;border-radius:50%;transition:background .2s,color .2s;flex-shrink:0;}
+.wish-icon-btn:hover{background:var(--bg3);color:var(--coral);}
+.wish-icon-btn .wish-count-pill{position:absolute;top:0;right:0;background:var(--coral);color:#fff;border-radius:50px;font-size:.52rem;font-weight:800;min-width:15px;height:15px;padding:0 3px;display:none;align-items:center;justify-content:center;line-height:1;}
 /* hamburger */
-.ham{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:4px;font-size:1.35rem;line-height:1;-webkit-tap-highlight-color:transparent;}
+.ham{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:4px 6px;font-size:1.5rem;line-height:1;-webkit-tap-highlight-color:transparent;flex-shrink:0;}
 
 /* mobile menu */
 .mob-menu{display:none;position:fixed;top:70px;left:0;right:0;z-index:199;background:var(--surface);border-bottom:1px solid var(--border);padding:14px 20px 18px;flex-direction:column;gap:2px;box-shadow:var(--sh-lg);}
 .mob-menu.open{display:flex;}
 .mob-menu a{color:var(--text2);font-size:.92rem;font-weight:500;padding:11px 0;border-bottom:1px solid var(--border);text-decoration:none;transition:color .2s;}
-.mob-menu a:last-child{border:none;color:var(--gold);font-weight:700;}
+.mob-menu a:last-child{border-bottom:none;}
 .mob-menu a:hover{color:var(--text);}
 
 /* ══════════════ HERO ══════════════ */
@@ -385,10 +389,10 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
 
 /* Mobile */
 @media(max-width:600px){
-  .nav{padding:0 16px;height:62px;}
+  .nav{padding:0 16px;height:62px;gap:8px;}
   .logo{font-size:1.4rem;}
   .logo-dot{font-size:1.8rem;}
-  .cart-btn{padding:7px 12px 7px 10px;font-size:.75rem;}
+  .cart-btn{padding:7px 10px 7px 8px;font-size:.75rem;gap:5px;}
   .mob-menu{top:62px;}
 
   .hero{padding:74px 16px 36px;min-height:100svh;}
@@ -500,7 +504,9 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
     <button class="tog" onclick="toggleTheme()" aria-label="Toggle theme">
       <span class="tog-sun">☀</span><span class="tog-moon">☽</span>
     </button>
-    <button class="wish-btn" onclick="openWishlist()">♥ Wishlist <span class="wish-count-pill" id="wishCount" style="display:none">0</span></button>
+    <button class="wish-icon-btn" onclick="openWishlist()" aria-label="Wishlist" title="Wishlist">
+      ♥<span class="wish-count-pill" id="wishCount">0</span>
+    </button>
     <a href="track.html" class="nav-track-btn">📦 Track Order</a>
     <button class="cart-btn" onclick="openCart()">
       🛒 Cart <span class="cart-pill" id="cartCount">0</span>
@@ -518,6 +524,7 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
   <a href="about.html" onclick="closeMob()">About</a>
   <a href="contact.html" onclick="closeMob()">Contact</a>
   <a href="track.html" onclick="closeMob()" style="color:var(--teal);font-weight:600;">📦 Track Your Order</a>
+  <a href="#" onclick="closeMob();openWishlist();" style="color:var(--coral);font-weight:600;">♥ Wishlist</a>
   <a href="index.html" onclick="closeMob()">🛒 Shop Now</a>
 </div>
 
@@ -534,10 +541,11 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
     <div class="hero-ctas">
       <a href="#consoles" class="btn-primary">Browse Products ↓</a>
       <a href="about.html" class="btn-ghost">About WiseWave</a>
+      <a href="track.html" class="btn-ghost" style="display:inline-flex;align-items:center;gap:6px;">📦 Track Order</a>
     </div>
     <div class="hero-pills">
       <div class="hero-pill"><span class="hero-pill-ic">🎮</span> 8 Consoles</div>
-      <div class="hero-pill"><span class="hero-pill-ic">📱</span> 15 iPhones</div>
+      <div class="hero-pill"><span class="hero-pill-ic">📱</span> 28 iPhones</div>
       <div class="hero-pill"><span class="hero-pill-ic">🚗</span> 6 Vehicles</div>
       <div class="hero-pill"><span class="hero-pill-ic">🔒</span> MoMo Secure</div>
     </div>
@@ -608,7 +616,7 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font
         <div class="sec-kicker">Category 02</div>
         <h2 class="sec-title"><em>iPhone</em> Models</h2>
       </div>
-      <span class="sec-meta">15 products · All storage sizes</span>
+      <span class="sec-meta">28 models · iPhone 11 to 17</span>
     </div>
     <div class="grid-phones" id="phoneGrid"></div>
   </div>
@@ -1057,51 +1065,98 @@ const CONSOLES = [
   {id:'c10',name:'Beats Solo Buds',          spec:'Wireless · 18hr Battery · USB-C · 4 Colors',price:1299, ic:'🎧', badge:'new', img:'images/beats-solo-buds.jpg'},
 ];
 const PHONES = [
-  {id:'p1', name:'iPhone 16 Pro Max', spec:'A18 Pro · 5G · 48MP',       price:14999, badge:'new',
-   colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'], colorNames:['Black Titanium','Desert Titanium','White Titanium','Natural Titanium'],
-   storage:['256GB','512GB','1TB'], storagePrice:[0,2000,4000]},
-  {id:'p2', name:'iPhone 16 Pro',     spec:'A18 Pro · 5G · ProMotion',  price:12999, badge:'new',
-   colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'], colorNames:['Black Titanium','Desert Titanium','White Titanium','Natural Titanium'],
-   storage:['128GB','256GB','512GB','1TB'], storagePrice:[0,1500,3000,5000]},
-  {id:'p3', name:'iPhone 16 Plus',    spec:'A18 · 5G · Dynamic Island', price:10999, badge:'new',
-   colors:['#1A1A1A','#FFFFFF','#C9B8A8','#4A90A4','#000000'], colorNames:['Black','White','Ultramarine','Teal','Pink'],
-   storage:['128GB','256GB','512GB'], storagePrice:[0,1500,3000]},
-  {id:'p4', name:'iPhone 16',         spec:'A18 · 5G · Dynamic Island', price:9499,  badge:'new',
-   colors:['#1A1A1A','#FFFFFF','#C9B8A8','#4A90A4','#D4607A'], colorNames:['Black','White','Ultramarine','Teal','Pink'],
-   storage:['128GB','256GB','512GB'], storagePrice:[0,1500,3000]},
-  {id:'p5', name:'iPhone 15 Pro Max', spec:'A17 Pro · Titanium · USB-C',price:11500, badge:null,
-   colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'], colorNames:['Black','Natural','White','Blue'],
-   storage:['256GB','512GB','1TB'], storagePrice:[0,2000,4000]},
-  {id:'p6', name:'iPhone 15 Pro',     spec:'A17 Pro · ProMotion · USB-C',price:9999, badge:null,
-   colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'], colorNames:['Black','Natural','White','Blue'],
-   storage:['128GB','256GB','512GB','1TB'], storagePrice:[0,1500,3000,5000]},
-  {id:'p7', name:'iPhone 15 Plus',    spec:'48MP · Dynamic Island · 5G', price:8499, badge:null,
-   colors:['#1A1A1A','#FFFFFF','#F5E6C8','#87CEEB','#90EE90'], colorNames:['Black','White','Yellow','Blue','Green'],
-   storage:['128GB','256GB','512GB'], storagePrice:[0,1500,3000]},
-  {id:'p8', name:'iPhone 15',         spec:'Dynamic Island · A16 · 5G',  price:7499, badge:'sale',
-   colors:['#1A1A1A','#FFFFFF','#F5E6C8','#87CEEB','#90EE90'], colorNames:['Black','White','Yellow','Blue','Green'],
-   storage:['128GB','256GB','512GB'], storagePrice:[0,1500,3000]},
-  {id:'p9', name:'iPhone 14 Pro Max', spec:'A16 · Always-On · ProRAW',   price:9000, badge:null,
-   colors:['#2C2C2C','#8B7355','#FFFFFF','#4A4A6A'], colorNames:['Space Black','Gold','Silver','Deep Purple'],
-   storage:['128GB','256GB','512GB','1TB'], storagePrice:[0,1500,3000,5000]},
-  {id:'p10',name:'iPhone 14 Pro',     spec:'A16 · Always-On · 120Hz',    price:7999, badge:'sale',
-   colors:['#2C2C2C','#8B7355','#FFFFFF','#4A4A6A'], colorNames:['Space Black','Gold','Silver','Deep Purple'],
-   storage:['128GB','256GB','512GB','1TB'], storagePrice:[0,1500,3000,5000]},
-  {id:'p11',name:'iPhone 14 Plus',    spec:'6.7" Super Retina XDR · 5G', price:6999, badge:null,
-   colors:['#1A1A1A','#FFFFFF','#4B6FB5','#D4607A','#F5E6C8'], colorNames:['Midnight','Starlight','Blue','Red','Yellow'],
-   storage:['128GB','256GB','512GB'], storagePrice:[0,1500,3000]},
-  {id:'p12',name:'iPhone 14',         spec:'A15 · Crash Detection · 5G', price:5999, badge:'sale',
-   colors:['#1A1A1A','#FFFFFF','#4B6FB5','#D4607A','#F5E6C8'], colorNames:['Midnight','Starlight','Blue','Red','Yellow'],
-   storage:['128GB','256GB','512GB'], storagePrice:[0,1500,3000]},
-  {id:'p13',name:'iPhone 13',         spec:'A15 · Dual 12MP · 5G',       price:4999, badge:'sale',
-   colors:['#1A1A1A','#FFFFFF','#D4607A','#4B6FB5','#90EE90','#FFC0CB'], colorNames:['Midnight','Starlight','Red','Blue','Green','Pink'],
-   storage:['128GB','256GB','512GB'], storagePrice:[0,1000,2000]},
-  {id:'p14',name:'iPhone 13 Mini',    spec:'Compact 5.4" · A15 · 5G',    price:4199, badge:'sale',
-   colors:['#1A1A1A','#FFFFFF','#D4607A','#4B6FB5','#90EE90','#FFC0CB'], colorNames:['Midnight','Starlight','Red','Blue','Green','Pink'],
-   storage:['128GB','256GB','512GB'], storagePrice:[0,1000,2000]},
-  {id:'p15',name:'iPhone SE 2024',    spec:'A15 · Compact · Touch ID',   price:3499, badge:null,
-   colors:['#1A1A1A','#FFFFFF','#D4607A'], colorNames:['Midnight','Starlight','Red'],
-   storage:['64GB','128GB','256GB'], storagePrice:[0,800,1600]},
+  // ── iPhone 17 series ──
+  {id:'p17pm',name:'iPhone 17 Pro Max',spec:'A19 Pro · 5G · 48MP ProCamera · 6.9"',price:16999,badge:'new',img:'',
+   colors:['#2C2C2C','#E8E0D5','#FFFFFF','#B0A090'],colorNames:['Black Titanium','Desert Titanium','White Titanium','Natural Titanium'],
+   storage:['256GB','512GB','1TB'],storagePrice:[0,2000,4000]},
+  {id:'p17p',name:'iPhone 17 Pro',spec:'A19 Pro · 5G · ProMotion · 6.3"',price:14999,badge:'new',img:'',
+   colors:['#2C2C2C','#E8E0D5','#FFFFFF','#B0A090'],colorNames:['Black Titanium','Desert Titanium','White Titanium','Natural Titanium'],
+   storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1500,3000,5000]},
+  {id:'p17a',name:'iPhone 17 Air',spec:'A19 · Ultra-thin 5.5mm · 6.6"',price:12999,badge:'new',img:'',
+   colors:['#1A1A1A','#FFFFFF','#A8C4D8','#D4B896'],colorNames:['Black','White','Sky Blue','Sand'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
+  {id:'p17',name:'iPhone 17',spec:'A19 · 5G · 48MP · Dynamic Island',price:11499,badge:'new',img:'',
+   colors:['#1A1A1A','#FFFFFF','#A8C4D8','#D4607A','#90A878'],colorNames:['Black','White','Sky Blue','Pink','Sage'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
+  // ── iPhone 16 series ──
+  {id:'p1',name:'iPhone 16 Pro Max',spec:'A18 Pro · 5G · 48MP · 6.9"',price:14999,badge:'new',img:'',
+   colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'],colorNames:['Black Titanium','Desert Titanium','White Titanium','Natural Titanium'],
+   storage:['256GB','512GB','1TB'],storagePrice:[0,2000,4000]},
+  {id:'p2',name:'iPhone 16 Pro',spec:'A18 Pro · 5G · ProMotion · 6.3"',price:12999,badge:'new',img:'',
+   colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'],colorNames:['Black Titanium','Desert Titanium','White Titanium','Natural Titanium'],
+   storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1500,3000,5000]},
+  {id:'p3',name:'iPhone 16 Plus',spec:'A18 · 5G · Dynamic Island · 6.7"',price:10999,badge:'new',img:'',
+   colors:['#1A1A1A','#FFFFFF','#C9B8A8','#4A90A4','#D4607A'],colorNames:['Black','White','Ultramarine','Teal','Pink'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
+  {id:'p4',name:'iPhone 16',spec:'A18 · 5G · Dynamic Island · 6.1"',price:9499,badge:'new',img:'',
+   colors:['#1A1A1A','#FFFFFF','#C9B8A8','#4A90A4','#D4607A'],colorNames:['Black','White','Ultramarine','Teal','Pink'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
+  // ── iPhone 15 series ──
+  {id:'p5',name:'iPhone 15 Pro Max',spec:'A17 Pro · Titanium · USB-C · 6.7"',price:11500,badge:null,img:'',
+   colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'],colorNames:['Black','Natural','White','Blue'],
+   storage:['256GB','512GB','1TB'],storagePrice:[0,2000,4000]},
+  {id:'p6',name:'iPhone 15 Pro',spec:'A17 Pro · ProMotion · USB-C · 6.1"',price:9999,badge:null,img:'',
+   colors:['#2C2C2C','#E8E0D5','#FFFFFF','#4A4843'],colorNames:['Black','Natural','White','Blue'],
+   storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1500,3000,5000]},
+  {id:'p7',name:'iPhone 15 Plus',spec:'48MP · Dynamic Island · 5G · 6.7"',price:8499,badge:null,img:'',
+   colors:['#1A1A1A','#FFFFFF','#F5E6C8','#87CEEB','#90EE90'],colorNames:['Black','White','Yellow','Blue','Green'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
+  {id:'p8',name:'iPhone 15',spec:'Dynamic Island · A16 · 5G · 6.1"',price:7499,badge:'sale',img:'',
+   colors:['#1A1A1A','#FFFFFF','#F5E6C8','#87CEEB','#90EE90'],colorNames:['Black','White','Yellow','Blue','Green'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
+  // ── iPhone 14 series ──
+  {id:'p9',name:'iPhone 14 Pro Max',spec:'A16 · Always-On · ProRAW · 6.7"',price:9000,badge:null,img:'',
+   colors:['#2C2C2C','#8B7355','#FFFFFF','#4A4A6A'],colorNames:['Space Black','Gold','Silver','Deep Purple'],
+   storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1500,3000,5000]},
+  {id:'p10',name:'iPhone 14 Pro',spec:'A16 · Always-On · 120Hz · 6.1"',price:7999,badge:'sale',img:'',
+   colors:['#2C2C2C','#8B7355','#FFFFFF','#4A4A6A'],colorNames:['Space Black','Gold','Silver','Deep Purple'],
+   storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1500,3000,5000]},
+  {id:'p11',name:'iPhone 14 Plus',spec:'6.7" Super Retina XDR · 5G · A15',price:6999,badge:null,img:'',
+   colors:['#1A1A1A','#FFFFFF','#4B6FB5','#D4607A','#F5E6C8'],colorNames:['Midnight','Starlight','Blue','Red','Yellow'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
+  {id:'p12',name:'iPhone 14',spec:'A15 · Crash Detection · 5G · 6.1"',price:5999,badge:'sale',img:'',
+   colors:['#1A1A1A','#FFFFFF','#4B6FB5','#D4607A','#F5E6C8'],colorNames:['Midnight','Starlight','Blue','Red','Yellow'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,1500,3000]},
+  // ── iPhone 13 series ──
+  {id:'p13',name:'iPhone 13 Pro Max',spec:'A15 · ProMotion · 3x Zoom · 6.7"',price:6499,badge:'sale',img:'',
+   colors:['#1A1A1A','#E8E0D5','#D4607A','#1B4D3E','#87CEEB'],colorNames:['Graphite','Gold','Sierra Blue','Alpine Green','Silver'],
+   storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1000,2000,3500]},
+  {id:'p13p',name:'iPhone 13 Pro',spec:'A15 · ProMotion · Macro · 6.1"',price:5999,badge:'sale',img:'',
+   colors:['#1A1A1A','#E8E0D5','#D4607A','#1B4D3E','#87CEEB'],colorNames:['Graphite','Gold','Sierra Blue','Alpine Green','Silver'],
+   storage:['128GB','256GB','512GB','1TB'],storagePrice:[0,1000,2000,3500]},
+  {id:'p13s',name:'iPhone 13',spec:'A15 · Dual 12MP · 5G · 6.1"',price:4999,badge:'sale',img:'',
+   colors:['#1A1A1A','#FFFFFF','#D4607A','#4B6FB5','#90EE90','#FFC0CB'],colorNames:['Midnight','Starlight','Red','Blue','Green','Pink'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,1000,2000]},
+  {id:'p14m',name:'iPhone 13 Mini',spec:'Compact 5.4" · A15 · 5G',price:4199,badge:'sale',img:'',
+   colors:['#1A1A1A','#FFFFFF','#D4607A','#4B6FB5','#90EE90','#FFC0CB'],colorNames:['Midnight','Starlight','Red','Blue','Green','Pink'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,1000,2000]},
+  // ── iPhone 12 series ──
+  {id:'p12pm',name:'iPhone 12 Pro Max',spec:'A14 · 5G · LiDAR · 6.7"',price:4499,badge:'sale',img:'',
+   colors:['#1A1A1A','#E8E0D5','#87CEEB','#1B4D3E'],colorNames:['Graphite','Gold','Pacific Blue','Silver'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,800,1600]},
+  {id:'p12p',name:'iPhone 12 Pro',spec:'A14 · 5G · LiDAR · 6.1"',price:3999,badge:'sale',img:'',
+   colors:['#1A1A1A','#E8E0D5','#87CEEB','#1B4D3E'],colorNames:['Graphite','Gold','Pacific Blue','Silver'],
+   storage:['128GB','256GB','512GB'],storagePrice:[0,800,1600]},
+  {id:'p12s',name:'iPhone 12',spec:'A14 · 5G · Super Retina XDR · 6.1"',price:3499,badge:'sale',img:'',
+   colors:['#1A1A1A','#FFFFFF','#D4607A','#4B6FB5','#90EE90'],colorNames:['Black','White','Red','Blue','Green'],
+   storage:['64GB','128GB','256GB'],storagePrice:[0,600,1200]},
+  {id:'p12m',name:'iPhone 12 Mini',spec:'Compact 5.4" · A14 · 5G',price:2999,badge:'sale',img:'',
+   colors:['#1A1A1A','#FFFFFF','#D4607A','#4B6FB5','#90EE90'],colorNames:['Black','White','Red','Blue','Green'],
+   storage:['64GB','128GB','256GB'],storagePrice:[0,600,1200]},
+  // ── iPhone 11 series ──
+  {id:'p11pm',name:'iPhone 11 Pro Max',spec:'A13 · Triple Camera · 6.5"',price:2799,badge:'sale',img:'',
+   colors:['#1A1A1A','#E8E0D5','#1B4D3E','#87CEEB'],colorNames:['Space Gray','Gold','Midnight Green','Silver'],
+   storage:['64GB','256GB','512GB'],storagePrice:[0,600,1200]},
+  {id:'p11p',name:'iPhone 11 Pro',spec:'A13 · Triple Camera · 5.8"',price:2499,badge:'sale',img:'',
+   colors:['#1A1A1A','#E8E0D5','#1B4D3E','#87CEEB'],colorNames:['Space Gray','Gold','Midnight Green','Silver'],
+   storage:['64GB','256GB','512GB'],storagePrice:[0,600,1200]},
+  {id:'p11s',name:'iPhone 11',spec:'A13 · Dual Camera · 6.1" · 4K',price:1999,badge:'sale',img:'',
+   colors:['#1A1A1A','#FFFFFF','#D4607A','#90EE90','#F5E6C8','#87CEEB'],colorNames:['Black','White','Red','Green','Yellow','Purple'],
+   storage:['64GB','128GB','256GB'],storagePrice:[0,400,800]},
+  // ── iPhone SE ──
+  {id:'p15',name:'iPhone SE 2024',spec:'A15 · Compact 4.7" · Touch ID',price:3499,badge:null,img:'',
+   colors:['#1A1A1A','#FFFFFF','#D4607A'],colorNames:['Midnight','Starlight','Red'],
+   storage:['64GB','128GB','256GB'],storagePrice:[0,800,1600]},
 ];
 const CARS = [
   {id:'v1',name:'Toyota Land Cruiser 300',spec:'V6 3.3L Twin-Turbo · 2023 · Silver',price:385000,badge:'hot',tags:['AWD','7-Seater','Sunroof','Leather']},
@@ -1318,8 +1373,7 @@ function toggleWish(id, name, price, ic, el){
 function renderWishCount(){
   const n = Object.keys(wishlist).length;
   const pill = document.getElementById('wishCount');
-  pill.textContent = n;
-  pill.style.display = n > 0 ? 'inline-flex' : 'none';
+  if(pill){ pill.textContent = n; pill.style.display = n > 0 ? 'inline-flex' : 'none'; }
 }
 function openWishlist(){
   const body = document.getElementById('wishBody');
